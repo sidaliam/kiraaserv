@@ -253,14 +253,14 @@ const Hotel = () => {
                 />
               </div>
             )}
-            <div className="ctrdate" style={{ display: "inline-block" }}>
+            <div className="ctrdate">
               <h3>
-                choisissez la date a la quelle vous souhaitez louer votre
-                voiture :
-                <div
-                  className="headerSearchItem"
-                  style={{ display: "inline-block" }}
-                >
+                Choisissez la date à laquelle vous souhaitez louer votre voiture
+                :
+                <br />
+                <br />
+
+                <div className="headerSearchItem">
                   <FontAwesomeIcon
                     icon={faCalendarDays}
                     className="headerIcon"
@@ -289,6 +289,7 @@ const Hotel = () => {
                 </div>
               </h3>
             </div>
+
             <br />
             <br />
 
