@@ -25,21 +25,17 @@ const Agence = () => {
     <div>
       <Helmet>
         <title>agences</title>
-        <meta
-          name="description"
-          content="voici nos agences disponibles "
-        />
+        <meta name="description" content="voici nos agences disponibles " />
       </Helmet>
       <Navbar />
       <br />
       <br />
-      <div className="ctrdate" style={{ display: "inline-block" }}>
+      <div className="ctrdate">
         <h3>
-          choisissez la date a la quelle vous souhaitez louer votre voiture :
-          <div
-            className="headerSearchItem"
-            style={{ display: "inline-block" }}
-          >
+          Choisissez la date à laquelle vous souhaitez louer votre voiture :
+          <br />
+          <br />
+          <div className="headerSearchItem">
             <FontAwesomeIcon
               icon={faCalendarDays}
               className="headerIcon"
@@ -55,16 +51,17 @@ const Agence = () => {
                 "MM/dd/yyyy"
               )}`}
             </span>
+
             {openDate && (
-              <DateRange
-                editableDateInputs={true}
-                onChange={(item) => setSelectedDates([item.selection])}
-                moveRangeOnFirstSelection={false}
-                ranges={selectedDates}
-                className="datex"
-                minDate={new Date()}
-              />
-            )}
+                    <DateRange
+                      editableDateInputs={true}
+                      onChange={(item) => setSelectedDates([item.selection])}
+                      moveRangeOnFirstSelection={false}
+                      ranges={selectedDates}
+                      className="datex"
+                      minDate={new Date()}
+                    />
+                  )}
           </div>
         </h3>
       </div>
