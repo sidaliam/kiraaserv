@@ -59,7 +59,10 @@ const Login = () => {
       </Helmet>
       <div className="login">
         <div className="login-form">
-          <img src={logo} alt="kiraa" className="logo" />
+          <div className="img-log" style={{ backgroundColor: "rgb(0,0,0,0.038)" }}>
+            <img src={logo} alt="kiraa" className="logo" />
+          </div>
+
           <h2 className="title">Login</h2>
           <input
             type="text"
@@ -75,7 +78,12 @@ const Login = () => {
             onChange={handleChange}
             className="input"
           />
-          <button disabled={loading} onClick={handleClick} className="signup-button" style={{backgroundColor:"#0071c2",color:"#fff"}}>
+          <button
+            disabled={loading}
+            onClick={handleClick}
+            className="signup-button"
+            style={{ backgroundColor: "#0071c2", color: "#fff" }}
+          >
             {loading ? "Connexion.." : "Se Connecter"}
           </button>
           {error && <span className="error">{error.message}</span>}

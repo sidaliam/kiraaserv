@@ -79,7 +79,12 @@ const Signup = () => {
       </Helmet>
       <div className="login">
         <div className="login-form">
-          <img src={logo} alt="kiraa" className="logo" />
+          <div
+            className="img-log"
+            style={{ backgroundColor: "rgb(0,0,0,0.038)" }}
+          >
+            <img src={logo} alt="kiraa" className="logo" />
+          </div>
           <h2 className="title">S'inscrire</h2>
           <input
             type="text"
