@@ -1,0 +1,24 @@
+/* Style pour le conteneur de l'input et du bouton */
+.input-container {
+  display: flex; /* Utiliser flexbox */
+  align-items: center;
+  position:relative /* Aligner verticalement les éléments */
+}
+
+/* Style pour l'input */
+.password-input {
+  flex: 1; /* Laisser l'input prendre l'espace disponible */
+  margin-right: 10px; /* Espacement entre l'input et le bouton */
+}
+
+/* Style pour le bouton toggle */
+.password-toggle-btn {
+  position: absolute; /* Définir la position absolue pour le bouton */
+  right: 10px; /* Ajuster la position du bouton sur le côté droit de l'input */
+  top: 50%; /* Centrer le bouton verticalement */
+  transform: translateY(-50%); /* Ajuster la position verticale du bouton */
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+

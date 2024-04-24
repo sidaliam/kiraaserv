@@ -3,9 +3,9 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/Authcontext";
 import "./Login.css";
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from "react-helmet-async";
 import { axiosinstance } from "../../config";
-
+import logo from "../../image/logo kiraa w-o original.png";
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -14,7 +14,6 @@ const Login = () => {
   });
 
   const { loading, error, dispatch } = useContext(AuthContext);
-
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -53,37 +52,40 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="login-container">
       <Helmet>
-        <title>login</title>
-        <meta name="description" content=""/>      </Helmet>
-    <div className="login">
-
-      <div className="lContainer">
-        <h2 className="lInput"></h2>
-        <input
-          type="text"
-          placeholder="username"
-          id="username"
-          onChange={handleChange}
-          className="lInput"
-        />
-        <input
-          type="password"
-          placeholder="password"
-          id="password"
-          onChange={handleChange}
-          className="lInput"
-        />
-        <button disabled={loading} onClick={handleClick} className="lButton">
-          Login
-        </button>
-        {error && <span style={{ color: "red" }}>{error.message}</span>}
-        <button  className="lButton" style={{backgroundColor : "orange"}}>
-          <a href="/signup" style={{textDecoration : "none", color : "white"}}>sign up</a>
-        </button>
+        <title>Login</title>
+        <meta name="description" content="" />
+      </Helmet>
+      <div className="login">
+        <div className="login-form">
+          <img src={logo} alt="kiraa" className="logo" />
+          <h2 className="title">Login</h2>
+          <input
+            type="text"
+            placeholder="Nom d'utilisateur"
+            id="username"
+            onChange={handleChange}
+            className="input"
+          />
+          <input
+            type="password"
+            placeholder="Mot de passe"
+            id="password"
+            onChange={handleChange}
+            className="input"
+          />
+          <button disabled={loading} onClick={handleClick} className="signup-button" style={{backgroundColor:"#0071c2",color:"#fff"}}>
+            {loading ? "Connexion.." : "Se Connecter"}
+          </button>
+          {error && <span className="error">{error.message}</span>}
+          <button className="signup-button">
+            <a href="/signup" className="signup-link">
+              S'inscrire
+            </a>
+          </button>
+        </div>
       </div>
-    </div>
     </div>
   );
 };

@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from "react-helmet-async";
 import { axiosinstance } from "../../config";
-
-
+import { AuthContext } from "../../Context/Authcontext";
+import "./Signup.css";
+import logo from "../../image/logo kiraa w-o original.png";
 const Signup = () => {
   const [credentials, setCredentials] = useState({
     username: "",
@@ -15,18 +15,18 @@ const Signup = () => {
     country: "",
     city: "",
     phone: "",
-    confirmPassword: ""
+    confirmPassword: "",
   });
 
   const [passwordsMatch, setPasswordsMatch] = useState(true);
-  const [error, setError] = useState("");
+  const [error2, setError2] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
     if (e.target.id === "confirmPassword") {
       setCredentials((prev) => ({
         ...prev,
-        confirmPassword: e.target.value
+        confirmPassword: e.target.value,
       }));
     } else {
       setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
@@ -34,101 +34,129 @@ const Signup = () => {
   };
 
   const navigate = useNavigate();
-
+  const { loading, error, dispatch } = useContext(AuthContext);
   const handleClick = async (e) => {
     e.preventDefault();
     if (credentials.password !== credentials.confirmPassword) {
       setPasswordsMatch(false);
-      setError("Les mots de passe ne correspondent pas.");
+      setError2("Les mots de passe ne correspondent pas.");
       return;
     }
     try {
       const res = await axiosinstance.post("/auth/register", credentials);
       navigate("/login");
     } catch (err) {
-      console.log(err);
+      if (err.response.status === 401) {
+        if (err.response.data === "Invalid username") {
+          dispatch({
+            type: "LOGIN_FAILURE",
+            payload: { message: "Invalid username" },
+          });
+        } else if (err.response.data === "Invalid password") {
+          dispatch({
+            type: "LOGIN_FAILURE",
+            payload: { message: "Invalid password" },
+          });
+        }
+      } else {
+        // Handle other error scenarios
+        dispatch({
+          type: "LOGIN_FAILURE",
+          payload: { message: "An error occurred during login" },
+        });
+      }
     }
   };
 
   return (
-    <div>
+    <div className="login-container">
       <Helmet>
-        <title>register</title>
-        <meta name="description" content="registrez-vous avant de commander la voitures"/>      </Helmet>
-    <div className="login">
-      <div className="lContainer">
-        <input
-          type="text"
-          placeholder="Username"
-          id="username"
-          onChange={handleChange}
-          className="lInput"
+        <title>Inscription</title>
+        <meta
+          name="description"
+          content="registrez-vous avant de commander la voitures"
         />
-        <div className="password-input-container">
+      </Helmet>
+      <div className="login">
+        <div className="login-form">
+          <img src={logo} alt="kiraa" className="logo" />
+          <h2 className="title">S'inscrire</h2>
           <input
-            type={showPassword ? "text" : "password"}
-            placeholder="Password"
-            id="password"
+            type="text"
+            placeholder="Nom d'utilisateur"
+            id="username"
             onChange={handleChange}
-            className="lInput"
+            className="input"
           />
+
+          <div className="input-container">
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Mot de passe"
+              id="password"
+              onChange={handleChange}
+              className="input" // Removed "password-input" class
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="password-toggle-btn"
+            >
+              <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+            </button>
+          </div>
+
+          <input
+            type="password"
+            placeholder="Confirmer mot de passe"
+            id="confirmPassword"
+            onChange={handleChange}
+            className="input"
+          />
+          <input
+            type="text"
+            placeholder="Email"
+            id="email"
+            onChange={handleChange}
+            className="input"
+          />
+          <input
+            type="text"
+            placeholder="Pays"
+            id="country"
+            onChange={handleChange}
+            className="input"
+          />
+          <input
+            type="text"
+            placeholder="Ville"
+            id="city"
+            onChange={handleChange}
+            className="input"
+          />
+          <input
+            type="text"
+            placeholder="Téléphone"
+            id="phone"
+            onChange={handleChange}
+            className="input"
+          />
+          {!passwordsMatch && <p className="error">{error2}</p>}
           <button
-            type="button"
-            onClick={() => setShowPassword(!showPassword)}
-            className="password-toggle-btn"
+            className="signup-button"
+            onClick={handleClick}
+            style={{ backgroundColor: "rgba(0, 113, 194)", color: "white" }}
           >
-            <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+            S'inscrire
+          </button>
+
+          <button className="signup-button">
+            <a href="/login" className="signup-link">
+              Se Connecter
+            </a>
           </button>
         </div>
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          id="confirmPassword"
-          onChange={handleChange}
-          className="lInput"
-        />
-        <input
-          type="text"
-          placeholder="Email"
-          id="email"
-          onChange={handleChange}
-          className="lInput"
-        />
-        <input
-          type="text"
-          placeholder="Pays"
-          id="country"
-          onChange={handleChange}
-          className="lInput"
-        />
-        <input
-          type="text"
-          placeholder="Ville"
-          id="city"
-          onChange={handleChange}
-          className="lInput"
-        />
-        <input
-          type="text"
-          placeholder="télephone"
-          id="phone"
-          onChange={handleChange}
-          className="lInput"
-        />
-        {!passwordsMatch && (
-          <p className="error-message">{error}</p>
-        )}
-        <button className="lButton" onClick={handleClick} style={{backgroundColor : "orange"}}>
-          Sign up
-        </button>
-        <Link to="/login">
-          <button className="lButton" >login</button>
-        </Link>
-        <Link to="/">
-          <button className="lButton">home</button>
-        </Link>
       </div>
-    </div>
     </div>
   );
 };
