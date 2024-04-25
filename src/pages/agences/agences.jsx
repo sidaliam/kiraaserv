@@ -31,7 +31,7 @@ const Agence = () => {
       <br />
       <br />
       <div className="ctrdate">
-        <h3>
+        <h3 style={{marginLeft:"5%"}}>
           Choisissez la date à laquelle vous souhaitez louer votre voiture :
           <br />
           <br />

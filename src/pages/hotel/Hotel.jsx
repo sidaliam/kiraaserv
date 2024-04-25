@@ -75,9 +75,15 @@ const Hotel = () => {
   const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
 
   function dayDifference(date1, date2) {
-    const timeDiff = Math.abs(date2.getTime() - date1.getTime());
-    const diffDays = Math.ceil(timeDiff / MILLISECONDS_PER_DAY);
-    return diffDays;
+    // Vérifier si les dates sont égales
+    if (date2.getTime() === date1.getTime()) {
+      return 1; // Si les dates sont égales, retourner 1
+    } else {
+      // Calculer la différence en jours normalement
+      const timeDiff = Math.abs(date2.getTime() - date1.getTime());
+      const diffDays = Math.ceil(timeDiff / MILLISECONDS_PER_DAY);
+      return diffDays;
+    }
   }
 
   const days =
@@ -214,6 +220,7 @@ const Hotel = () => {
 
     return !isFound;
   };
+
   return (
     <div>
       <Helmet>
@@ -259,7 +266,6 @@ const Hotel = () => {
                 :
                 <br />
                 <br />
-
                 <div className="headerSearchItem">
                   <FontAwesomeIcon
                     icon={faCalendarDays}
@@ -742,10 +748,10 @@ const Hotel = () => {
                 <div className="hotelDetailsPrice">
                   <h1>commandez pour {days} jours</h1>
                   <span>
-                    commandez la voiture en ligne et recevez votre réservation
+                    commandez la voiture en ligne 
                   </span>
                   <h2>
-                    <b>{searchcarr.price * days}</b> ({days} nights)
+                    <b>{searchcarr.price * days} Da</b> ({days} Jours)
                   </h2>
                   {searchcar && searchcar.length > 0 && (
                     <button className="bookNow" onClick={handleclick}>
@@ -852,8 +858,19 @@ const Hotel = () => {
               </div>
               <div className="hotelDetails">
                 <div className="hotelDetailsTexts">
-                  <h1 className="hotelTitle">description de l'agence</h1>
-                  <p className="hotelDesc">{data.desc}</p>
+                  <span className="vt"> nos voitures : </span>
+                  <span className="siFeatures">
+                    {data.rooms &&
+                      data.rooms.map((room) => (
+                        <span className="siFeatures" key={room._id}>
+                          <ul>
+                            <li>
+                              {room.marque} {room.modéle}
+                            </li>
+                          </ul>
+                        </span>
+                      ))}
+                  </span>
                 </div>
                 <div className="hotelDetailsPrice">
                   <h1>commandez pour {days} jours</h1>
