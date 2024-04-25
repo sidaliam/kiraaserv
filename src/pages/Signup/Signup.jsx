@@ -69,7 +69,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="login-container">
+    <div className="login-containerx">
       <Helmet>
         <title>Inscription</title>
         <meta

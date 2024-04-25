@@ -58,7 +58,7 @@ const Login = () => {
         <meta name="description" content="" />
       </Helmet>
       <div className="login">
-        <div className="login-form">
+        <div className="login-formx">
           <div className="img-log" style={{ backgroundColor: "rgb(0,0,0,0.038)" }}>
             <img src={logo} alt="kiraa" className="logo" />
           </div>

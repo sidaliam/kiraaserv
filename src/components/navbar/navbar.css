@@ -60,6 +60,7 @@
 
   .navButton {
     margin: 10px 0; /* Modifiez la marge selon vos préférences */
+    
   }
 }
 
@@ -89,13 +90,6 @@
   }
 }
 
-/* Styles pour les mobiles */
-@media screen and (max-width: 768px) {
-  .btw {
-    padding: 6px 12px;
-    font-size: 12px;
-  }
-}
 
 /* Styles de base pour le bouton */
 .btw {
@@ -127,8 +121,12 @@
 /* Styles pour les mobiles */
 @media screen and (max-width: 768px) {
   .btw {
+    margin-top: 50%;
     padding: 6px 12px;
     font-size: 12px;
+  }
+  .btx {
+    margin-top: 69%;
   }
 }
 
@@ -170,6 +168,7 @@
   .btx {
     padding: 6px 12px;
     font-size: 12px;
+    
   }
   #navbar-logo {
  

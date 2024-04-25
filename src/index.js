@@ -8,6 +8,8 @@ import {
   ReservationProvider,
 } from "./Context/ReservationContext";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -24,3 +26,5 @@ root.render(
     </AuthContextProvider>
   </React.StrictMode>
 );
+
+serviceWorkerRegistration.register();

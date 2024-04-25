@@ -58,7 +58,7 @@
   position: absolute;
   height: 30px;
   background-color: white;
-  border: 3px solid orange;
+  border: 3px solid rgba(255, 128, 0, 0.981);
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -90,7 +90,6 @@
   user-select: none; /* Empêche la sélection de texte qui pourrait causer le zoom */
 
 }
-
 .headerSearchText {
   color: black;
   cursor: pointer;
@@ -101,7 +100,6 @@
   top: 50px;
   z-index: 2;
 }
-
 .options {
   z-index: 2;
   position: absolute;
@@ -293,13 +291,46 @@ button {
     width: 40px; /* Ajustement de la largeur pour les appareils mobiles */
     height: 40px; /* Ajustement de la hauteur pour les appareils mobiles */
   }
-  button {
-   
-    margin-bottom: 30px;
-  }
+ 
   .headerBtn {
     margin-top: 31px;
-    margin-right: 17px;
+    margin-right: 300px;
+    margin-bottom: 30px;
+    right: 60%;
+
+  }
+
+  .selct {
+    width: 60px;
+  }
+
+
+  .headerContainerb {
+    margin: 20px 5px 30px 5px; /* Ajustements de marge pour les mobiles */
+  }
+
+  .headerList {
+    flex-direction: column; /* Afficher les éléments en colonne sur les mobiles */
+    gap: 10px; /* Ajustements d'écart pour les mobiles */
+  }
+
+  .headerListItem.active {
+    padding: 8px; /* Ajustement de la taille du padding pour les mobiles */
+  }
+
+  .headerSearch {
+    bottom: -15px; /* Ajustement de la position pour les mobiles */
+    right: 1.5%;
+    left: 1.5;
+
+  }
+
+  .optionItem {
+    max-width: 120px; /* Ajustements de largeur maximale pour les mobiles */
+  }
+
+  span {
+    font-size: x-small;
   }
 }
 /* Media Query pour mobile */
@@ -320,6 +351,8 @@ button {
   .headerSearch {
     bottom: -15px; /* Ajustement de la position pour les mobiles */
     
+
+    
   }
 
   .optionItem {
@@ -329,6 +362,8 @@ button {
   span {
     font-size: x-small;
   }
+
+  
 }
 
 .notification {

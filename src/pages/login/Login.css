@@ -3,6 +3,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
 }
 
 .login {
@@ -12,15 +14,19 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-.login-form {
+.login-formx {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  width: 500px;
 }
 
 .logo {
   width: 100px;
+  background-color: #2412c5;
+  border-radius: 5%;
+
 }
 
 .title {
@@ -81,7 +87,7 @@
 @media (max-width: 600px) {
   .login {
 
-    padding-top: 140px; /* Réduire l'espace intérieur du formulaire */
+    padding-top: 40px; /* Réduire l'espace intérieur du formulaire */
   }
 
   .input {
@@ -98,7 +104,33 @@
     padding: 8px; /* Réduire l'espace intérieur du lien de connexion */
     font-size: 14px; /* Réduire la taille de la police du lien de connexion */
   }
+
+  .login-formx {
+    height: 400px;
+    width: 200px;
+  }
 }
 
+/* Style pour le conteneur de l'input et du bouton */
+.input-container {
+  display: flex; /* Utiliser flexbox */
+  align-items: center;
+  position:relative /* Aligner verticalement les éléments */
+}
 
+/* Style pour l'input */
+.password-input {
+  flex: 1; /* Laisser l'input prendre l'espace disponible */
+  margin-right: 10px; /* Espacement entre l'input et le bouton */
+}
 
+/* Style pour le bouton toggle */
+.password-toggle-btn {
+  position: absolute; /* Définir la position absolue pour le bouton */
+  right: 10px; /* Ajuster la position du bouton sur le côté droit de l'input */
+  top: 50%; /* Centrer le bouton verticalement */
+  transform: translateY(-50%); /* Ajuster la position verticale du bouton */
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
