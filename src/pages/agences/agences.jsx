@@ -58,8 +58,10 @@ const Agence = () => {
               <div className="datePickerContainer">
                 <div className="datePicker">
                   <div className="sicon" onClick={() => setOpenDate(false)}>
-                    <FontAwesomeIcon icon={faTimes} />
+                    <FontAwesomeIcon icon={faTimes} style={{color:"#007bff"}} />
                   </div>
+                  <br />
+                  <br />
                   <DateRange
                     editableDateInputs={true}
                     onChange={(item) => setSelectedDates([item.selection])}
