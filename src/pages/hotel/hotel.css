@@ -320,6 +320,10 @@
     font-size: 20px; /* Réduire la taille du titre pour les mobiles */
   }
 
+  .imgihotel{
+    width: 80%;
+  }
+
   .hotelAddress {
     font-size: 10px; /* Réduire la taille de l'adresse pour les mobiles */
   }
