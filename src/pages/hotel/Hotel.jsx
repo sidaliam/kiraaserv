@@ -807,7 +807,7 @@ const Hotel = () => {
               <h3 className="hotelTitle">{data.name}</h3>
 
               <img
-                style={{ height: "350", width: "500px" }}
+                style={{ height: "350px", width: "40%" }}
                 src={data.photos}
                 alt=""
                 className="imgihotel"
