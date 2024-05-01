@@ -39,7 +39,7 @@ function ContactPage() {
       <h4 style={{display:"none"}}>Welcome To</h4>
       <h2>Qui sommes-nous ?</h2>
       <p>Nous sommes une équipe de développeurs web passionnés, unis par notre engagement 
-        à créer des solutions innovantes. Notre première création est une application web pour les locations 
+        à créer des solutions innovantes. Notre première création est une application web pour la location 
         de voitures, conçue avec soin pour offrir une expérience fluide et intuitive à nos utilisateurs. 
         Forts de cette réussite, nous sommes animés par une ambition débordante, prêts à relever de nouveaux défis 
         et à concrétiser de nouvelles idées. Nous croyons fermement à l'importance du feedback et de la collaboration, 

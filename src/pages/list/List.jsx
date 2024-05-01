@@ -99,7 +99,7 @@ const List = () => {
           {showSearchBar && (
             <div ref={searchBarRef} className="searchBar">
               <div className="listSearch">
-                <h1 className="lsTitle">Search</h1>
+                <h1 className="lsTitle">Recherche</h1>
                 <div className="lsItem">
                   <label>Destination</label>
                   <input
@@ -128,7 +128,7 @@ const List = () => {
                   </div>
                 </div>
                 <div className="lsItem">
-                  <label>Check-in Date</label>
+                  <label>Sélectionner la date</label>
                   <span onClick={() => setOpenDate(!openDate)}>
                     {`${format(dates[0].startDate, "MM/dd/yyyy")} to ${format(
                       dates[0].endDate,
@@ -161,7 +161,7 @@ const List = () => {
           )}
         </div>
       </div>
-      <h3 className="agg">voila les agences qui possedent la voitures cherchée :</h3>
+      <h3 className="agg">agences qui possèdent la voitures recherchée :</h3>
       <div className="listContainer">
         <div className="listWrapper">
           <div className="listResult">

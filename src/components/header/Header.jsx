@@ -8,7 +8,7 @@ import {
   faHome,
   faHotel,
   faUser,
-  faWarehouse
+  faWarehouse,
 } from "@fortawesome/free-solid-svg-icons";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { IoLogoModelS } from "react-icons/io";
@@ -33,15 +33,12 @@ const Header = ({ type }) => {
   const { reservationDetails } = useContext(GlobalContext);
   const [notification, setNotification] = useState(false); // État pour contrôler l'affichage de la notification
 
-
   const handleShopIconClick = () => {
-  
     navigate("/reservation-details");
     setNotification(true); // Afficher la notification
     setTimeout(() => {
       setNotification(false); // Masquer la notification après quelques secondes
     }, 3000); // 3000 millisecondes = 3 secondes, vous pouvez ajuster ce temps selon vos besoins
-   
   };
 
   const [openDate, setOpenDate] = useState(false);
@@ -53,20 +50,17 @@ const Header = ({ type }) => {
     },
   ]);
 
-
   const navigate = useNavigate();
 
   const handleSearch = () => {
-
-      navigate("/hotels", { state: { modéle, ville, dates } });
-      dispatch({
-        type: "NEW_SEARCH",
-        payload: { modéle, ville, dates },
-      });
+    navigate("/hotels", { state: { modéle, ville, dates } });
+    dispatch({
+      type: "NEW_SEARCH",
+      payload: { modéle, ville, dates },
+    });
 
     localStorage.setItem("selectedDates", JSON.stringify(dates));
     localStorage.setItem("selectedmodeles", JSON.stringify(modéle));
-
   };
 
   const { dispatch } = useContext(SearchContext, AuthContext);
@@ -87,7 +81,6 @@ const Header = ({ type }) => {
   const handleselect2 = (e) => {
     setville(e.target.value);
   };
-  
 
   return (
     <div className="header">
@@ -114,45 +107,45 @@ const Header = ({ type }) => {
                 {user ? user.username : <div className="navItems"></div>}
               </div>
 
-
               <div class="shop" onClick={handleShopIconClick}>
                 {/* Icône du shop */}
-                <FontAwesomeIcon icon={faWarehouse} />
-                <span>{reservationCount}</span>
+                <img style={{cursor:'pointer'}} width="48" height="48" src="https://img.icons8.com/fluency/48/indoor-parking-06.png" alt="indoor-parking-06"/>
+                <span style={{cursor:'pointer',background:'red',padding:'3px 4px 3px 4px',borderRadius:'4px'}}>{reservationCount}</span>
                 {/* Afficher la liste des produits si showCart est vrai */}
               </div>
 
-               {/* Condition pour afficher la notification */}
-      {notification && (
-        <div className="notification">
-          {/* Contenu de la notification */}
-          Votre compteur a été incrémenté!
-        </div>
-      )}
+              {/* Condition pour afficher la notification */}
+              {notification && (
+                <div className="notification">
+                  {/* Contenu de la notification */}
+                  Votre compteur a été incrémenté!
+                </div>
+              )}
 
               <div class="icon-sliderb">
                 <a href="/">
-                <div class="icon-containerb">
-                <IoLogoModelS className="icon" />
-                </div>
+                  <div class="icon-containerb">
+                  <img width="48" height="48" src="https://img.icons8.com/fluency/48/000000/car-rental.png" alt="car-rental"/>                  </div>
                 </a>
                 <a href="/agences">
-                <div class="icon-containerb">
-                  <FontAwesomeIcon icon={faHome} className="icon" />
-                </div>
+                  <div class="icon-containerb">
+                  <img width="48" height="48" src="https://img.icons8.com/fluency/48/add-contact-to-company.png" alt="add-contact-to-company"/>
+                  </div>
                 </a>
                 <div class="icon-containerb" style={{ display: "none" }}>
-                  <FontAwesomeIcon icon={faHotel} className="icon" style={{ display: "none" }} />
+                  <FontAwesomeIcon
+                    icon={faHotel}
+                    className="icon"
+                    style={{ display: "none" }}
+                  />
                 </div>
                 <a href="/contact">
-                <div class="icon-containerb">
-                  <FontAwesomeIcon icon={faPhone} className="icon" />
-                </div>
+                  <div class="icon-containerb">
+                  <img width="48" height="48" src="https://img.icons8.com/fluency/48/outgoing-call.png" alt="outgoing-call"/>                  </div>
                 </a>
                 <a href="/about">
-                <div class="icon-containerb">
-                  <FontAwesomeIcon icon={faUser} className="icon" />
-                </div>
+                  <div class="icon-containerb">
+                  <img width="48" height="48" src="https://img.icons8.com/fluency/48/conference-call.png" alt="conference-call"/>                  </div>
                 </a>
               </div>
             </p>

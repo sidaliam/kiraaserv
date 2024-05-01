@@ -32,28 +32,13 @@ const ReservationDetailsPage = () => {
     <div>
       <Navbar />
       <Header/>
-      <h1 className="h1">Details des Reservations</h1>
+      <h1 className="h1">Détails de réservations</h1>
       <ul className="ul">
         {reservationDetails.map((details, index) => (
           <li className="li" key={index}>
-            <p className="p">model : {details.modele}</p>
+            <p className="p">modèle : {details.modele}</p>
             <p className="p">dates : {details.dates}</p>
-            <p className="p">photos :</p>
-            <div className="hotelImages">
-  {details.photos?.map((photoArray, i) => (
-    <div className="hotelImgWrapper" key={i}>
-      {photoArray.map((photo, j) => (
-        <img
-          key={j}
-          src={photo ? photo : 'placeholder.jpg'}
-          alt=""
-          className="hotelImg"
-          style={{ width: '200px', height: '150px' }}
-        />
-      ))}
-    </div>
-  ))}
-</div>
+         <br/>
             <button onClick={() => handleCancelReservation(details.id)}>
               Annuler
             </button>

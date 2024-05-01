@@ -27,17 +27,17 @@ const Navbar = () => {
           <div className="navItems"></div>
         ) : (
           <div className="navItems">
-            <button className="btw"><a href="/signup" style={{textDecoration:"none", color:"white"}}>Register</a></button>
+            <button className="btv"><a href="/signup" style={{textDecoration:"none", color:"white"}}>s'inscrire</a></button>
             
           </div>
         )}
          {user ? (
-              <button className="btw" onClick={handleclick}>logout</button>
+              <button className="btw" onClick={handleclick}>se déconnecter</button>
             ) : (
               <>
                 <Link to="/login">
                   {" "}
-                  <button className="btx" >login</button>
+                  <button className="btx" >se connecter</button>
                 </Link>
               </>
             )}

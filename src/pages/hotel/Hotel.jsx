@@ -75,6 +75,8 @@ const Hotel = () => {
   const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
 
   function dayDifference(date1, date2) {
+    
+    
     // Vérifier si les dates sont égales
     if (date2.getTime() === date1.getTime()) {
       return 1; // Si les dates sont égales, retourner 1
@@ -221,6 +223,11 @@ const Hotel = () => {
     return !isFound;
   };
 
+
+
+
+
+  
   return (
     <div>
       <Helmet>
@@ -261,11 +268,11 @@ const Hotel = () => {
               </div>
             )}
             <div className="ctrdate">
-              <h3>
-                Choisissez la date à laquelle vous souhaitez louer votre voiture
-                :
+              <h3 style={{marginLeft:'2%'}}>
+                Choisissez la date à laquelle vous souhaitez louer votre voiture :
                 <br />
                 <br />
+
                 <div className="headerSearchItem">
                   <FontAwesomeIcon
                     icon={faCalendarDays}
@@ -325,7 +332,7 @@ const Hotel = () => {
                     paddingBottom: "2px",
                   }}
                 >
-                  moteur : {voiture.moteur}
+                  Moteur : {voiture.moteur}
                 </h5>
 
                 <h5
@@ -348,7 +355,7 @@ const Hotel = () => {
                   }}
                 >
                   {" "}
-                  <FcBusinessman /> chaufeur : {voiture.hotelDetails.title}
+                  <FcBusinessman /> Chaufeur : {voiture.hotelDetails.title}
                 </h5>
 
                 <h5
@@ -360,7 +367,7 @@ const Hotel = () => {
                   }}
                 >
                   {" "}
-                  <FcShipped /> livraison : {voiture.hotelDetails.desc}
+                  <FcShipped /> Livraison : {voiture.hotelDetails.desc}
                 </h5>
 
                 <h5
@@ -373,7 +380,7 @@ const Hotel = () => {
                     paddingBottom: "2px",
                   }}
                 >
-                  disponibilité :{" "}
+                  Disponibilité :{" "}
                   {voiture.roomNumbers.map((roomnumber) => (
                     <h5
                       style={{
@@ -398,7 +405,7 @@ const Hotel = () => {
                               verticalAlign: "middle",
                             }}
                           >
-                            La voiture n'est pas disponible jusqu'à
+                            non disponible
                           </h3>
                         </>
                       ) : (
@@ -418,7 +425,7 @@ const Hotel = () => {
                               verticalAlign: "middle",
                             }}
                           >
-                            la voiture est disponible a cette date la
+                            disponible
                           </h3>
                         </>
                       )}
@@ -439,7 +446,7 @@ const Hotel = () => {
                     fontSize: "18px",
                   }}
                 >
-                  prix : {voiture.price} DA /par jour
+                  Prix : {voiture.price} DA /par jour
                 </h5>
               </div>
               <h4> {voiture.hotelDetails.name} </h4>
@@ -498,7 +505,7 @@ const Hotel = () => {
                 <div className="hotelDetailsPrice">
                   <span></span>
 
-                  <h3>Totale a payer : {voiture.price * alldates.length} DA</h3>
+                  <h3>Total à payer : {voiture.price * alldates.length} DA</h3>
 
                   {voiture.roomNumbers.map((roomnumber) => (
                     <button
@@ -580,7 +587,7 @@ const Hotel = () => {
                       paddingBottom: "2px",
                     }}
                   >
-                    moteur : {searchcarr.moteur}
+                    Moteur : {searchcarr.moteur}
                   </h5>
 
                   <h5
@@ -603,7 +610,7 @@ const Hotel = () => {
                     }}
                   >
                     {" "}
-                    <FcBusinessman /> chaufeur : {searchcarr.hotelDetails.title}
+                    <FcBusinessman /> Chaufeur : {searchcarr.hotelDetails.title}
                   </h5>
 
                   <h5
@@ -615,7 +622,7 @@ const Hotel = () => {
                     }}
                   >
                     {" "}
-                    <FcShipped /> livraison : {searchcarr.hotelDetails.desc}
+                    <FcShipped /> Livraison : {searchcarr.hotelDetails.desc}
                   </h5>
 
                   <h5
@@ -628,7 +635,7 @@ const Hotel = () => {
                       paddingBottom: "2px",
                     }}
                   >
-                    disponibilité :{" "}
+                    Disponibilité :{" "}
                     {searchcarr.roomNumbers.map((roomnumber) => (
                       <h5
                         style={{
@@ -653,7 +660,7 @@ const Hotel = () => {
                                 verticalAlign: "middle",
                               }}
                             >
-                              La voiture n'est pas disponible jusqu'à
+                              non disponible
                             </h3>
                           </>
                         ) : (
@@ -673,7 +680,7 @@ const Hotel = () => {
                                 verticalAlign: "middle",
                               }}
                             >
-                              la voiture est disponible a cette date la
+                              disponible
                             </h3>
                           </>
                         )}
@@ -695,7 +702,7 @@ const Hotel = () => {
                     fontSize: "18px",
                   }}
                 >
-                  prix : {searchcarr.price} DA /par jour
+                  Prix : {searchcarr.price} DA /par jour
                 </h5>
               </div>
               <div className="rdesc">
@@ -743,15 +750,15 @@ const Hotel = () => {
               <div className="hotelDetails">
                 <div className="hotelDetailsTexts">
                   <h1 className="hotelTitle">description de la voiture</h1>
-                  <p className="hotelDesc">{data.desc}</p>
+                  <p className="hotelDesc">{searchcarr.description}</p>
                 </div>
                 <div className="hotelDetailsPrice">
-                  <h1>commandez pour {days} jours</h1>
+                  <h1>commandez pour {days} jour(s)</h1>
                   <span>
-                    commandez la voiture en ligne 
+                    commandez la voiture en ligne et recevez votre réservation
                   </span>
                   <h2>
-                    <b>{searchcarr.price * days} Da</b> ({days} Jours)
+                    <b>{searchcarr.price * days} DA</b> ({days} jour(s))
                   </h2>
                   {searchcar && searchcar.length > 0 && (
                     <button className="bookNow" onClick={handleclick}>
@@ -858,24 +865,16 @@ const Hotel = () => {
               </div>
               <div className="hotelDetails">
                 <div className="hotelDetailsTexts">
-                  <span className="vt"> nos voitures : </span>
-                  <span className="siFeatures">
-                    {data.rooms &&
-                      data.rooms.map((room) => (
-                        <span className="siFeatures" key={room._id}>
-                          <ul>
-                            <li>
-                              {room.marque} {room.modéle}
-                            </li>
-                          </ul>
-                        </span>
-                      ))}
-                  </span>
+                <span className="vt"> nos voitures : </span>
+        <span className="siFeatures">{data.rooms && data.rooms.map((room)=>(
+    <span className="siFeatures" key={room._id}><ul><li>{room.marque} {room.modéle}</li></ul></span>
+))}</span>
                 </div>
                 <div className="hotelDetailsPrice">
                   <h1>commandez pour {days} jours</h1>
                   <span>voici nos voitures à commander</span>
-                  <h2>({days} jours)</h2>
+                  <span>cochez voiture choisie</span>
+                  <h2>({days} jour(s))</h2>
                   <button className="bookNow" onClick={handleclick}>
                     commandez ici
                   </button>

@@ -22,7 +22,8 @@ const FeaturedPropertiesx = ({ selectedDates }) => {
       ) : (
         <>
           {data.map((item) => (
-            <div className="fpItem" key={item._id}>
+            <div className="fpItemx" key={item._id}>
+              <div className="cardx">
               {item.photos && item.photos.length > 0 && (
                 <img src={item.photos[0]} alt="" className="fpImgx" />
               )}
@@ -31,17 +32,10 @@ const FeaturedPropertiesx = ({ selectedDates }) => {
               <span className="fpCity">{item.address}</span>
 
               <span className="fpPrice">0{item.cheapestPrice}</span>
-              <button className="btw" onClick={() => handleButtonClick(item._id)}>
-                Voir plus
+              <button className="btw" style={{marginLeft:'5%',marginBottom:'2%'}} onClick={() => handleButtonClick(item._id)}>
+                visiter
               </button>
-              {item.rating && (
-                <div className="fpRating">
-                  <button>8.9</button>
-                  <span>Excellent</span>
-
-                  <span>Excellent</span>
-                </div>
-              )}
+              </div>
             </div>
           ))}
         </>

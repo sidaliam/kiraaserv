@@ -85,7 +85,7 @@ const Signup = () => {
           >
             <img src={logo} alt="kiraa" className="logo" />
           </div>
-          <h2 className="title">S'inscrire</h2>
+          <h2 className="title">inscription</h2>
           <input
             type="text"
             placeholder="Nom d'utilisateur"
@@ -152,12 +152,12 @@ const Signup = () => {
             onClick={handleClick}
             style={{ backgroundColor: "rgba(0, 113, 194)", color: "white" }}
           >
-            S'inscrire
+            s'inscrire
           </button>
 
           <button className="signup-button">
             <a href="/login" className="signup-link">
-              Se Connecter
+              se connecter
             </a>
           </button>
         </div>

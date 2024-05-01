@@ -32,7 +32,7 @@ const Footer = () => {
 </div>
 
 <div className="rowx" style={{  color : "whitesmoke" }}>
-Kiraa Copyright © 2021 Kiraa - All rights reserved || Designed By: Redouane & Sidali 
+Kiraa Copyright © 2024 Kiraa - All rights reserved 
 </div>
 </div>
 </div>

@@ -63,7 +63,7 @@ const Login = () => {
             <img src={logo} alt="kiraa" className="logo" />
           </div>
 
-          <h2 className="title">Login</h2>
+          <h2 className="title">connexion</h2>
           <input
             type="text"
             placeholder="Nom d'utilisateur"
@@ -84,12 +84,12 @@ const Login = () => {
             className="signup-button"
             style={{ backgroundColor: "#0071c2", color: "#fff" }}
           >
-            {loading ? "Connexion.." : "Se Connecter"}
+            {loading ? "Connexion.." : "se connecter"}
           </button>
           {error && <span className="error">{error.message}</span>}
           <button className="signup-button">
             <a href="/signup" className="signup-link">
-              S'inscrire
+              s'inscrire
             </a>
           </button>
         </div>

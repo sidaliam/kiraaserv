@@ -22,7 +22,15 @@ import { GlobalContext } from "../../Context/ReservationContext";
 const Header = ({ type }) => {
 
   const { reservationCount } = useContext(GlobalContext);
+ const [notification, setNotification] = useState(false); // État pour contrôler l'affichage de la notification
 
+  const handleShopIconClick = () => {
+    navigate("/reservation-details");
+    setNotification(true); // Afficher la notification
+    setTimeout(() => {
+      setNotification(false); // Masquer la notification après quelques secondes
+    }, 3000); // 3000 millisecondes = 3 secondes, vous pouvez ajuster ce temps selon vos besoins
+  };
   
   const [destination, setDestination] = useState("");
   const [openDate, setOpenDate] = useState(false);
@@ -115,36 +123,48 @@ const Header = ({ type }) => {
             
           </div>
         )}
-  </div>
-  <div class="shop">
-    {/* Icône du shop */}
-    <FontAwesomeIcon icon={faWarehouse} />
-        <span>{reservationCount}</span>
-  </div>
 
-  <div class="icon-sliderc">
-                <a href="/">
-                <div class="icon-containerc">
-                  <FontAwesomeIcon  icon={faCar} className="icon" />
+
+  </div>
+  <div class="shop" onClick={handleShopIconClick}>
+                {/* Icône du shop */}
+                <img style={{cursor:'pointer'}} width="48" height="48" src="https://img.icons8.com/fluency/48/indoor-parking-06.png" alt="indoor-parking-06"/>
+                <span style={{cursor:'pointer',background:'red',padding:'3px 4px 3px 4px',borderRadius:'4px'}}>{reservationCount}</span>
+                {/* Afficher la liste des produits si showCart est vrai */}
+              </div>
+
+              {/* Condition pour afficher la notification */}
+              {notification && (
+                <div className="notification">
+                  {/* Contenu de la notification */}
+                  Votre compteur a été incrémenté!
                 </div>
+              )}
+
+              <div class="icon-sliderb">
+                <a href="/">
+                  <div class="icon-containerc" >
+                  <img  width="42" height="42" src="https://img.icons8.com/fluency/48/000000/car-rental.png" alt="car-rental"/>                  </div>
                 </a>
                 <a href="/agences">
-                <div class="icon-containerc">
-                  <FontAwesomeIcon icon={faHome} className="icon" />
-                </div>
+                  <div class="icon-containerc">
+                  <img width="42" height="42" src="https://img.icons8.com/fluency/48/add-contact-to-company.png" alt="add-contact-to-company"/>
+                  </div>
                 </a>
                 <div class="icon-containerc" style={{ display: "none" }}>
-                  <FontAwesomeIcon icon={faHotel} className="icon" style={{ display: "none" }} />
+                  <FontAwesomeIcon
+                    icon={faHotel}
+                    className="icon"
+                    style={{ display: "none" }}
+                  />
                 </div>
                 <a href="/contact">
-                <div class="icon-containerc">
-                  <FontAwesomeIcon icon={faPhone} className="icon" />
-                </div>
+                  <div class="icon-containerc">
+                  <img width="42" height="42" src="https://img.icons8.com/fluency/48/outgoing-call.png" alt="outgoing-call"/>                  </div>
                 </a>
                 <a href="/about">
-                <div class="icon-containerc">
-                  <FontAwesomeIcon icon={faUser} className="icon" />
-                </div>
+                  <div class="icon-containerc">
+                  <img width="42" height="42" src="https://img.icons8.com/fluency/48/conference-call.png" alt="conference-call"/>                  </div>
                 </a>
               </div>
             </p>

@@ -16,7 +16,7 @@ const Home = () => {
       <Navbar />
       <Header/>
       <div className="homeContainer">
-        <Featured/>
+        
         
         <h1 className="homeTitlee" style={{color : "orange"}}>nos voitures</h1>
         <FeaturedProperties/>

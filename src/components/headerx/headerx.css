@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   position: relative;
-  height: 150px;
+  height: 170px;
 }
 
 .headerContainer {
@@ -54,22 +54,7 @@
   margin-right: 17px;
 }
 
-.headerSearch {
-  position: absolute;
-  height: 30px;
-  background-color: white;
-  border: 3px solid #febb02;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 10px 0px;
-  border-radius: 5px;
-  position: absolute;
-  bottom: -25px;
-  width: 96%;
-  max-width: 1024px;
-  
-}
+
 
 .headerIcon {
   color: lightgray;
@@ -184,6 +169,8 @@ span {
 
 }
 
+
+
 .icon-containerc {
   flex: 0 0 auto;
   width: 50px; /* Largeur initiale de chaque icône */
@@ -191,7 +178,6 @@ span {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f0f0f0; /* Couleur de fond du conteneur */
   border-radius: 50%; /* Crée un cercle */
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Animations de transition */
   text-align: center;
@@ -283,10 +269,7 @@ button {
      
   }
  
-  .headerBtn {
-    margin-top: 31px;
-    margin-right: 17px;
-  }
+
 }
 /* Changement au survol */
 .profile p {
@@ -317,9 +300,6 @@ button {
     padding: 8px; /* Ajustement de la taille du padding pour les mobiles */
   }
 
-  .headerSearch {
-    bottom: -15px; /* Ajustement de la position pour les mobiles */
-  }
 
   .optionItem {
     max-width: 120px; /* Ajustements de largeur maximale pour les mobiles */

@@ -175,24 +175,21 @@ span {
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
-  gap: 20px;
+  gap: 60px;
   padding: 10px;
-  margin-bottom: -20px;
   align-items: center;
 
 }
 
 .icon-containerb {
   flex: 0 0 auto;
-  width: 50px; /* Largeur initiale de chaque icône */
-  height: 50px; /* Hauteur initiale de chaque icône */
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f0f0f0; /* Couleur de fond du conteneur */
-  border-radius: 50%; /* Crée un cercle */
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Animations de transition */
   text-align: center;
+  
+  
 }
 
 .icon {
@@ -255,10 +252,11 @@ button {
   margin-bottom: -20px;
   margin-left: 90%;
   top: 50%; /* À mi-chemin verticalement */
-  right: 20px; /* Distance du côté droit */
+  right:20px; /* Distance du côté droit */
   transform: translateY(-50%); /* Ajuste la position verticale */
   font-size: 24px; /* Taille de l'icône */
   /* Ajoutez ici d'autres styles nécessaires */
+  
 }
 
 
@@ -332,6 +330,7 @@ button {
   span {
     font-size: x-small;
   }
+
 }
 /* Media Query pour mobile */
 @media screen and (max-width: 480px) {
@@ -349,7 +348,7 @@ button {
   }
 
   .headerSearch {
-    bottom: -15px; /* Ajustement de la position pour les mobiles */
+    bottom: -30px; /* Ajustement de la position pour les mobiles */
     
 
     
@@ -363,7 +362,7 @@ button {
     font-size: x-small;
   }
 
-  
+
 }
 
 .notification {

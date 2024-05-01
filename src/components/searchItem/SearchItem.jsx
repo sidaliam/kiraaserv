@@ -14,8 +14,7 @@ const SearchItem = ({ item }) => {
         <span className="siDistance">chauffeur:{item.title}</span>
 
         <span className="siSubtitle">
-          notre agence a la voiture que tu cherches et d'autres 
-        </span>
+nous disposons d'autres voitures         </span>
         <span className="vt"> nos voitures : </span>
         <span className="siFeatures">{item.rooms.map((room)=>(
            <span className="siFeatures" key={room._id} ><ul ><li > {room.marque} {room.modéle}</li></ul></span>

@@ -7,7 +7,8 @@ import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 import { format } from "date-fns";
 import { useState } from "react";
 import { DateRange } from "react-date-range";
-
+import Headerx from "../../components/headerx/Headerx";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 const Agence = () => {
   localStorage.removeItem("selectedVoiture");
   localStorage.removeItem("selectedmodeles");
@@ -28,23 +29,24 @@ const Agence = () => {
         <meta name="description" content="voici nos agences disponibles " />
       </Helmet>
       <Navbar />
+      <Headerx />
       <br />
       <br />
       <div className="ctrdate">
-        <h3 style={{marginLeft:"5%"}}>
+        <h3 style={{ marginLeft: "5%" }}>
           Choisissez la date à laquelle vous souhaitez louer votre voiture :
           <br />
           <br />
           <div className="headerSearchItem">
             <FontAwesomeIcon
               icon={faCalendarDays}
-              className="headerIcon"
+              className="chiki"
               style={{ color: "rgb(0, 53, 128)" }}
             />
             <span
               onClick={() => setOpenDate(!openDate)}
-              className="headerSearchText"
-              style={{ color: "rgb(0, 53, 128)" }}
+              className="picki"
+              style={{ color: "rgb(0, 53, 128)", cursor: "pointer" }}
             >
               {`${format(selectedDates[0].startDate, "MM/dd/yyyy")} to ${format(
                 selectedDates[0].endDate,
@@ -53,22 +55,29 @@ const Agence = () => {
             </span>
 
             {openDate && (
-                    <DateRange
-                      editableDateInputs={true}
-                      onChange={(item) => setSelectedDates([item.selection])}
-                      moveRangeOnFirstSelection={false}
-                      ranges={selectedDates}
-                      className="datex"
-                      minDate={new Date()}
-                    />
-                  )}
+              <div className="datePickerContainer">
+                <div className="datePicker">
+                  <div className="sicon" onClick={() => setOpenDate(false)}>
+                    <FontAwesomeIcon icon={faTimes} />
+                  </div>
+                  <DateRange
+                    editableDateInputs={true}
+                    onChange={(item) => setSelectedDates([item.selection])}
+                    moveRangeOnFirstSelection={false}
+                    ranges={selectedDates}
+                    className="datex"
+                    minDate={new Date()}
+                  />
+                </div>
+              </div>
+            )}
           </div>
         </h3>
       </div>
 
       <div className="homeContainer">
         <h1 className="homeTitlee" style={{ color: "orange" }}>
-          NOS AGENCES
+          nos agences
         </h1>
         <FeaturedPropertiesx selectedDates={selectedDates} />
       </div>
