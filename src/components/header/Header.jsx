@@ -157,9 +157,9 @@ const Header = ({ type }) => {
                   onClick={() => setOpenDate(!openDate)}
                   className="headerSearchText"
                 >
-                  {`${format(dates[0].startDate, "MM/dd/yyyy")} to ${format(
+                  {`${format(dates[0].startDate, "dd/MM/yyyy")} au ${format(
                     dates[0].endDate,
-                    "MM/dd/yyyy"
+                    "dd/MM/yyyy"
                   )}`}
                 </span>
 
