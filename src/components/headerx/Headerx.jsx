@@ -1,8 +1,11 @@
 import {
-  
   faCar,
   faPhone,
-  faHome,faHotel,faUser,faShoppingCart,faWarehouse
+  faHome,
+  faHotel,
+  faUser,
+  faShoppingCart,
+  faWarehouse,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./headerx.css";
@@ -14,15 +17,12 @@ import { useContext } from "react";
 import { SearchContext } from "../../Context/Searchcontext";
 import { AuthContext } from "../../Context/Authcontext";
 import useF from "../../Hooks/useF";
-import { Helmet } from 'react-helmet';
+import { Helmet } from "react-helmet";
 import { GlobalContext } from "../../Context/ReservationContext";
 
-
-
 const Header = ({ type }) => {
-
   const { reservationCount } = useContext(GlobalContext);
- const [notification, setNotification] = useState(false); // État pour contrôler l'affichage de la notification
+  const [notification, setNotification] = useState(false); // État pour contrôler l'affichage de la notification
 
   const handleShopIconClick = () => {
     navigate("/reservation-details");
@@ -31,7 +31,7 @@ const Header = ({ type }) => {
       setNotification(false); // Masquer la notification après quelques secondes
     }, 3000); // 3000 millisecondes = 3 secondes, vous pouvez ajuster ce temps selon vos besoins
   };
-  
+
   const [destination, setDestination] = useState("");
   const [openDate, setOpenDate] = useState(false);
   const [dates, setDates] = useState([
@@ -60,21 +60,26 @@ const Header = ({ type }) => {
   };
 
   const handleSearch = () => {
-    
-      if (destination && !modéle) {
-        // Recherche en fonction de la destination uniquement
-        navigate("/hotels", { state: { destination, dates,options } });
-        dispatch({ type: "NEW_SEARCH", payload: { destination, dates,options } });
-      } else if (modéle && !destination) {
-        // Recherche en fonction du modéle uniquement
-        navigate("/hotels", { state: { modéle, dates,options } });
-        dispatch({ type: "NEW_SEARCH", payload: { modéle, dates,options } });
-      } else {
-        navigate("/hotels", { state: { modéle,destination, dates,options } });
-        dispatch({ type: "NEW_SEARCH", payload: { modéle,destination, dates, options } });
-      }
-    };
-  
+    if (destination && !modéle) {
+      // Recherche en fonction de la destination uniquement
+      navigate("/hotels", { state: { destination, dates, options } });
+      dispatch({
+        type: "NEW_SEARCH",
+        payload: { destination, dates, options },
+      });
+    } else if (modéle && !destination) {
+      // Recherche en fonction du modéle uniquement
+      navigate("/hotels", { state: { modéle, dates, options } });
+      dispatch({ type: "NEW_SEARCH", payload: { modéle, dates, options } });
+    } else {
+      navigate("/hotels", { state: { modéle, destination, dates, options } });
+      dispatch({
+        type: "NEW_SEARCH",
+        payload: { modéle, destination, dates, options },
+      });
+    }
+  };
+
   const { dispatch } = useContext(SearchContext, AuthContext);
   const { user } = useContext(AuthContext);
   const handleclick = (e) => {
@@ -93,14 +98,14 @@ const Header = ({ type }) => {
   return (
     <div className="headerx">
       <div>
-      <Helmet>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-        />
-      </Helmet>
-      {/* ... Autres éléments de votre composant ... */}
-    </div>
+        <Helmet>
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+          />
+        </Helmet>
+        {/* ... Autres éléments de votre composant ... */}
+      </div>
       <div
         className={
           type === "list" ? "headerContainer listMode" : "headerContainer"
@@ -108,28 +113,20 @@ const Header = ({ type }) => {
       >
         {type !== "list" && (
           <>
-            <h1 className="headerTitle">
-              
-            </h1>
+            <h1 className="headerTitle"></h1>
             <p className="headerDesc">
-            <div class="profile">
-    {/* Nom du profil */}
-    {user ? (
-          
-          user.username
-        ) : (
-          <div className="navItems">
-           
-            
-          </div>
-        )}
-
-
-  </div>
-  <div onClick={handleShopIconClick}>
-              <img className="cc1" src="https://img.icons8.com/fluency/48/indoor-parking-06.png" alt="indoor-parking-06"/> 
+              <div class="profile">
+                {/* Nom du profil */}
+                {user ? user.username : <div className="navItems"></div>}
+              </div>
+              <div onClick={handleShopIconClick}>
                 <span className="cc">{reservationCount}</span>
-                </div>
+                <img
+                  className="cc1"
+                  src="https://img.icons8.com/fluency/48/indoor-parking-06.png"
+                  alt="indoor-parking-06"
+                />
+              </div>
 
               {/* Condition pour afficher la notification */}
               {notification && (
@@ -141,12 +138,23 @@ const Header = ({ type }) => {
 
               <div class="icon-sliderb">
                 <a href="/">
-                  <div class="icon-containerc" >
-                  <img  width="42" height="42" src="https://img.icons8.com/fluency/48/000000/car-rental.png" alt="car-rental"/>                  </div>
+                  <div class="icon-containerc">
+                    <img
+                      width="42"
+                      height="42"
+                      src="https://img.icons8.com/fluency/48/000000/car-rental.png"
+                      alt="car-rental"
+                    />{" "}
+                  </div>
                 </a>
                 <a href="/agences">
                   <div class="icon-containerc">
-                  <img width="42" height="42" src="https://img.icons8.com/fluency/48/add-contact-to-company.png" alt="add-contact-to-company"/>
+                    <img
+                      width="42"
+                      height="42"
+                      src="https://img.icons8.com/fluency/48/add-contact-to-company.png"
+                      alt="add-contact-to-company"
+                    />
                   </div>
                 </a>
                 <div class="icon-containerc" style={{ display: "none" }}>
@@ -158,20 +166,26 @@ const Header = ({ type }) => {
                 </div>
                 <a href="/contact">
                   <div class="icon-containerc">
-                  <img width="42" height="42" src="https://img.icons8.com/fluency/48/outgoing-call.png" alt="outgoing-call"/>                  </div>
+                    <img
+                      width="42"
+                      height="42"
+                      src="https://img.icons8.com/fluency/48/outgoing-call.png"
+                      alt="outgoing-call"
+                    />{" "}
+                  </div>
                 </a>
                 <a href="/about">
                   <div class="icon-containerc">
-                  <img width="42" height="42" src="https://img.icons8.com/fluency/48/conference-call.png" alt="conference-call"/>                  </div>
+                    <img
+                      width="42"
+                      height="42"
+                      src="https://img.icons8.com/fluency/48/conference-call.png"
+                      alt="conference-call"
+                    />{" "}
+                  </div>
                 </a>
               </div>
             </p>
-            
-
-
-
-
-             
           </>
         )}
       </div>

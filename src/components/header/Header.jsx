@@ -116,12 +116,13 @@ const Header = ({ type }) => {
                 </div>
               </div>
               <div onClick={handleShopIconClick}>
+              <span className="cc">{reservationCount}</span>
                 <img
                   className="cc1"
                   src="https://img.icons8.com/fluency/48/indoor-parking-06.png"
                   alt="indoor-parking-06"
                 />
-                <span className="cc">{reservationCount}</span>
+               
               </div>
 
               {/* Condition pour afficher la notification */}
