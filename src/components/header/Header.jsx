@@ -105,13 +105,23 @@ const Header = ({ type }) => {
               <div class="profile">
                 {/* Nom du profil */}
                 {user ? user.username : <div className="navItems"></div>}
-              </div>
+                <div
+                  style={{ cursor: "pointer" }}
+                  class="shop"
+                  onClick={handleShopIconClick}
+                >
+                  {/* Icône du shop */}
 
-              <div class="shop" onClick={handleShopIconClick}>
-                {/* Icône du shop */}
-                <img style={{cursor:'pointer'}} width="48" height="48" src="https://img.icons8.com/fluency/48/indoor-parking-06.png" alt="indoor-parking-06"/>
-                <span style={{cursor:'pointer',background:'red',padding:'3px 4px 3px 4px',borderRadius:'4px'}}>{reservationCount}</span>
-                {/* Afficher la liste des produits si showCart est vrai */}
+                  {/* Afficher la liste des produits si showCart est vrai */}
+                </div>
+              </div>
+              <div onClick={handleShopIconClick}>
+                <img
+                  className="cc1"
+                  src="https://img.icons8.com/fluency/48/indoor-parking-06.png"
+                  alt="indoor-parking-06"
+                />
+                <span className="cc">{reservationCount}</span>
               </div>
 
               {/* Condition pour afficher la notification */}
@@ -125,11 +135,22 @@ const Header = ({ type }) => {
               <div class="icon-sliderb">
                 <a href="/">
                   <div class="icon-containerb">
-                  <img width="48" height="48" src="https://img.icons8.com/fluency/48/000000/car-rental.png" alt="car-rental"/>                  </div>
+                    <img
+                      width="48"
+                      height="48"
+                      src="https://img.icons8.com/fluency/48/000000/car-rental.png"
+                      alt="car-rental"
+                    />{" "}
+                  </div>
                 </a>
                 <a href="/agences">
                   <div class="icon-containerb">
-                  <img width="48" height="48" src="https://img.icons8.com/fluency/48/add-contact-to-company.png" alt="add-contact-to-company"/>
+                    <img
+                      width="48"
+                      height="48"
+                      src="https://img.icons8.com/fluency/48/add-contact-to-company.png"
+                      alt="add-contact-to-company"
+                    />
                   </div>
                 </a>
                 <div class="icon-containerb" style={{ display: "none" }}>
@@ -141,11 +162,23 @@ const Header = ({ type }) => {
                 </div>
                 <a href="/contact">
                   <div class="icon-containerb">
-                  <img width="48" height="48" src="https://img.icons8.com/fluency/48/outgoing-call.png" alt="outgoing-call"/>                  </div>
+                    <img
+                      width="48"
+                      height="48"
+                      src="https://img.icons8.com/fluency/48/outgoing-call.png"
+                      alt="outgoing-call"
+                    />{" "}
+                  </div>
                 </a>
                 <a href="/about">
                   <div class="icon-containerb">
-                  <img width="48" height="48" src="https://img.icons8.com/fluency/48/conference-call.png" alt="conference-call"/>                  </div>
+                    <img
+                      width="48"
+                      height="48"
+                      src="https://img.icons8.com/fluency/48/conference-call.png"
+                      alt="conference-call"
+                    />{" "}
+                  </div>
                 </a>
               </div>
             </p>
@@ -157,9 +190,9 @@ const Header = ({ type }) => {
                   onClick={() => setOpenDate(!openDate)}
                   className="headerSearchText"
                 >
-                  {`${format(dates[0].startDate, "dd/MM/yyyy")} au ${format(
+                  {`${format(dates[0].startDate, "MM/dd/yyyy")} to ${format(
                     dates[0].endDate,
-                    "dd/MM/yyyy"
+                    "MM/dd/yyyy"
                   )}`}
                 </span>
 

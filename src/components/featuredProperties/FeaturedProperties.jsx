@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./featuredProperties.css";
 import { Link } from "react-router-dom";
 import useF from "../../Hooks/useF";
+import LoadingAnimation from "../../Animation/Animation - 1714744423298.json"
+import Lottie from "lottie-react";
 const FeaturedProperties = () => {
   const { data, error, loading } = useF("/rooms");
   const [visibleVoitures, setVisibleVoitures] = useState(12);
@@ -15,7 +17,7 @@ const FeaturedProperties = () => {
     <div className="fp">
       
       {loading ? (
-        "Loading ...."
+       <Lottie style={{height:120}} animationData={LoadingAnimation} />
       ) : error ? (
         "Error fetching data."
       ) : (

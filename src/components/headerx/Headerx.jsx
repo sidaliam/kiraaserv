@@ -126,12 +126,10 @@ const Header = ({ type }) => {
 
 
   </div>
-  <div class="shop" onClick={handleShopIconClick}>
-                {/* Icône du shop */}
-                <img style={{cursor:'pointer'}} width="48" height="48" src="https://img.icons8.com/fluency/48/indoor-parking-06.png" alt="indoor-parking-06"/>
-                <span style={{cursor:'pointer',background:'red',padding:'3px 4px 3px 4px',borderRadius:'4px'}}>{reservationCount}</span>
-                {/* Afficher la liste des produits si showCart est vrai */}
-              </div>
+  <div onClick={handleShopIconClick}>
+              <img className="cc1" src="https://img.icons8.com/fluency/48/indoor-parking-06.png" alt="indoor-parking-06"/> 
+                <span className="cc">{reservationCount}</span>
+                </div>
 
               {/* Condition pour afficher la notification */}
               {notification && (

@@ -2,6 +2,8 @@ import "./featuredPropertiesx.css";
 import useF from "../../Hooks/useF";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import LoadingAnimation from "../../Animation/Animation - 1714744423298.json"
+import Lottie from "lottie-react";
 const FeaturedPropertiesx = ({ selectedDates }) => {
   const { data, error, loading } = useF("/hotels");
   console.log("Data:", data);
@@ -18,7 +20,7 @@ const FeaturedPropertiesx = ({ selectedDates }) => {
   return (
     <div className="fp">
       {loading ? (
-        "loading ...."
+       <Lottie style={{height:120}} animationData={LoadingAnimation} />
       ) : (
         <>
           {data.map((item) => (

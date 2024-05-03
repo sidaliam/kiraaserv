@@ -75,8 +75,6 @@ const Hotel = () => {
   const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
 
   function dayDifference(date1, date2) {
-    
-    
     // Vérifier si les dates sont égales
     if (date2.getTime() === date1.getTime()) {
       return 1; // Si les dates sont égales, retourner 1
@@ -223,11 +221,6 @@ const Hotel = () => {
     return !isFound;
   };
 
-
-
-
-
-  
   return (
     <div>
       <Helmet>
@@ -268,11 +261,11 @@ const Hotel = () => {
               </div>
             )}
             <div className="ctrdate">
-              <h3 style={{marginLeft:'2%'}}>
-                Choisissez la date à laquelle vous souhaitez louer votre voiture :
+              <h3 style={{ marginLeft: "2%" }}>
+                Choisissez la date à laquelle vous souhaitez louer votre voiture
+                :
                 <br />
                 <br />
-
                 <div className="headerSearchItem">
                   <FontAwesomeIcon
                     icon={faCalendarDays}
@@ -807,7 +800,7 @@ const Hotel = () => {
               <h3 className="hotelTitle">{data.name}</h3>
 
               <img
-                style={{ height: "350px", width: "40%" }}
+                style={{ maxWidth: "75%", height: "auto" }}
                 src={data.photos}
                 alt=""
                 className="imgihotel"
@@ -866,10 +859,19 @@ const Hotel = () => {
               </div>
               <div className="hotelDetails">
                 <div className="hotelDetailsTexts">
-                <span className="vt"> nos voitures : </span>
-        <span className="siFeatures">{data.rooms && data.rooms.map((room)=>(
-    <span className="siFeatures" key={room._id}><ul><li>{room.marque} {room.modéle}</li></ul></span>
-))}</span>
+                  <span className="vt"> nos voitures : </span>
+                  <span className="siFeatures">
+                    {data.rooms &&
+                      data.rooms.map((room) => (
+                        <span className="siFeatures" key={room._id}>
+                          <ul>
+                            <li>
+                              {room.marque} {room.modéle}
+                            </li>
+                          </ul>
+                        </span>
+                      ))}
+                  </span>
                 </div>
                 <div className="hotelDetailsPrice">
                   <h1>commandez pour {days} jours</h1>

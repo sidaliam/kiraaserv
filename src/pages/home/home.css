@@ -82,6 +82,8 @@ width: 100%;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+  margin-bottom: 50px;
+  margin-top: 50px;
 }
 .homex {
   -webkit-box-align: center;
