@@ -70,6 +70,9 @@
 
 /* Media Query pour tablette */
 @media screen and (max-width: 768px) {
+  .fpx{
+    display: grid;
+  }
   .fpImgx {
     max-height: 300px; /* Ajuster la hauteur maximale pour les tablettes */
   }
@@ -77,6 +80,9 @@
 
 /* Media Query pour mobile */
 @media screen and (max-width: 480px) {
+  .fpx{
+    display: grid;
+  }
   .fpImgx {
     max-height: 300px; /* Ajuster la hauteur maximale pour les mobiles */
   }
@@ -87,6 +93,9 @@
   
   /* Media Query pour tablette */
   @media screen and (max-width: 768px) {
+    .fpx{
+      display: grid;
+    }
     .fpImg {
       height: 200px; /* Ajuster la hauteur maximale pour les tablettes */
     }
@@ -94,6 +103,9 @@
     
     /* Media Query pour mobile */
     @media screen and (max-width: 480px) {
+      .fpx{
+        display: grid;
+      }
     .fpImg {
       height: 150px; /* Ajuster la hauteur maximale pour les mobiles */
     }

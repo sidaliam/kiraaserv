@@ -79,7 +79,7 @@ const Agence = () => {
 
       <div className="homeContainer">
         <h1 className="homeTitlee" style={{ color: "orange" }}>
-          nos agences
+          NOS AGENCES
         </h1>
         <FeaturedPropertiesx selectedDates={selectedDates} />
       </div>

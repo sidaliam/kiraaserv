@@ -18,7 +18,7 @@ const FeaturedPropertiesx = ({ selectedDates }) => {
   };
 
   return (
-    <div className="fp">
+    <div className="fpx">
       {loading ? (
        <Lottie style={{height:120}} animationData={LoadingAnimation} />
       ) : (
