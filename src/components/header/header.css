@@ -7,7 +7,6 @@
   height: 200px;
 }
 
-
 .headerContainer {
   width: 100%;
   max-width: 1024px;
@@ -144,7 +143,6 @@
 .selct {
   width: 60px;
   margin-right: 5px;
-
 }
 
 .date-range-picker {
@@ -296,7 +294,7 @@ button {
     margin-top: 31px;
     margin-right: 300px;
     margin-bottom: 30px;
-    right: 60%;
+    right: 100%;
 
   }
 
@@ -377,4 +375,22 @@ button {
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   z-index: 9999; /* Assurez-vous que la notification apparaît au-dessus de tous les autres éléments */
+}
+
+
+.cc1 {
+  width: 38px;
+  height: 38px;
+  margin-right: 10px; /* Marge de 10px entre l'image et le composant suivant */
+  margin-left: 80%; /* Marge de 10px à droite de la page */
+  cursor: pointer;
+}
+
+.cc {
+  background: red;
+  padding: 3px 5px;
+  border-radius: 8px;
+  width: 30px;
+  height: 30px;
+  margin-left: 82%;
 }

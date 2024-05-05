@@ -26,8 +26,6 @@ const Home = () => {
         <section id="heroSection" className="hero--section">
           <div className="hero--section--content--box">
             <div className="hero--section--content">
-              <br />
-              <br />
               <h3 className="hero--section--title" style={{ color: "#0071c2" }}>
                 KIRAA
               </h3>
@@ -93,8 +91,8 @@ const Home = () => {
           </div>
         </section>
 
-        <h1 className="homeTitlee" style={{ color: "orange" }}>
-          nos voitures
+        <h1 className="homeTitlee"  style={{ color: "#0071c2" }}>
+          Nos Voitures
         </h1>
         <FeaturedProperties />
       </div>
