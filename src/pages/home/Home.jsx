@@ -7,6 +7,7 @@ import "./home.css";
 import { Helmet } from "react-helmet-async";
 import GooglePlay from "../../image/google-play-badge.png";
 import AppStore from "../../image/Download_on_the_App_Store_Badge_FR_RGB_blk_100517.svg";
+import im from "../../image/435-Car.png";
 
 const Home = () => {
   return (
@@ -22,31 +23,45 @@ const Home = () => {
       <Header />
 
       <div className="homeContainer">
-        <div class="containerx homex">
-          <h2 class="personx">KIRAA pour location de voitures</h2>
-          <br />
-          <p class="introx">
-            Bienvenue sur notre plateforme dédiée à la location de voitures, une
-            solution polyvalente pour répondre à vos besoins de
-            déplacement,Grâce à notre système de réservation en ligne intuitif,
-            vous pouvez facilement sélectionner la date de début et de fin de
-            votre location ainsi que la wilaya de votre choix, vous offrant
-            ainsi un accès instantané à un large éventail de véhicules
-            disponibles dans la région désirée. Notre réseau étendu de
-            partenaires locaux garantit que vous trouverez toujours le véhicule
-            idéal, où que vous soyez dans le pays. Prêt à partir à l'aventure ?
-            Réservez dès maintenant votre voiture sur notre plateforme et
-            préparez-vous à vivre une expérience inoubliable .
-          </p>
-          <br />
-          N'hésitez pas a télecharger nos applications sur :
-          <nav class="navx" >
+        <section id="heroSection" className="hero--section">
+          <div className="hero--section--content--box">
+            <div className="hero--section--content">
+              <br />
+              <br />
+              <h3 className="hero--section--title" style={{ color: "#0071c2" }}>
+                KIRAA
+              </h3>
+              <h1 style={{ color: "#0071c2" }}>pour location de voitures</h1>
+              <p className="hero--section-description">
+                Bienvenue sur notre plateforme dédiée à la location de voitures,
+                une solution polyvalente pour répondre à vos besoins de
+                déplacement,Grâce à notre système de réservation en ligne
+                intuitif, vous pouvez facilement sélectionner la date de début
+                et de fin de votre location ainsi que la wilaya de votre choix,
+                vous offrant ainsi un accès instantané à un large éventail de
+                véhicules disponibles dans la région désirée. Notre réseau
+                étendu de partenaires locaux garantit que vous trouverez
+                toujours le véhicule idéal, où que vous soyez dans le pays. Prêt
+                à partir à l'aventure ? Réservez dès maintenant votre voiture
+                sur notre plateforme et préparez-vous à vivre une expérience
+                inoubliable .
+              </p>
+              <p className="hero--section-descriptionx">
+                Découvrez notre plateforme de location de voitures, flexible et
+                intuitive. Réservez dès maintenant pour une expérience de voyage
+                inoubliable.{" "}
+              </p>
+            </div>
+
             <a
               href="lien_vers_google_play_store"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <button className="store-button" style={{backgroundColor:"#fff"}}>
+              <button
+                className="store-button"
+                style={{ backgroundColor: "#f7f7f7" }}
+              >
                 <img
                   src={GooglePlay}
                   alt="Google Play Store"
@@ -59,7 +74,10 @@ const Home = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <button className="store-button" style={{backgroundColor:"#fff"}}>
+              <button
+                className="store-button"
+                style={{ backgroundColor: "#f7f7f7" }}
+              >
                 <img
                   src={AppStore}
                   alt="App Store"
@@ -67,10 +85,17 @@ const Home = () => {
                 />
               </button>
             </a>
-          </nav>
-        </div>
 
-        <h1 className="homeTitlee" style={{color:"orange"}}>NOS VOITURES</h1>
+            <br />
+          </div>
+          <div className="hero--section--img">
+            <img src={im} alt="Hero Section" />
+          </div>
+        </section>
+
+        <h1 className="homeTitlee" style={{ color: "orange" }}>
+          nos voitures
+        </h1>
         <FeaturedProperties />
       </div>
       <Footer />

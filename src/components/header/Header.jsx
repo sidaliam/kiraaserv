@@ -116,13 +116,12 @@ const Header = ({ type }) => {
                 </div>
               </div>
               <div onClick={handleShopIconClick}>
-              <span className="cc">{reservationCount}</span>
+                <span className="cc">{reservationCount}</span>
                 <img
                   className="cc1"
                   src="https://img.icons8.com/fluency/48/indoor-parking-06.png"
                   alt="indoor-parking-06"
                 />
-               
               </div>
 
               {/* Condition pour afficher la notification */}
@@ -191,9 +190,9 @@ const Header = ({ type }) => {
                   onClick={() => setOpenDate(!openDate)}
                   className="headerSearchText"
                 >
-                  {`${format(dates[0].startDate, "MM/dd/yyyy")} to ${format(
+                  {`${format(dates[0].startDate, "dd/MM/yyyy")} au ${format(
                     dates[0].endDate,
-                    "MM/dd/yyyy"
+                    "dd/MM/yyyy"
                   )}`}
                 </span>
 
@@ -211,7 +210,7 @@ const Header = ({ type }) => {
 
               <div className="headerSearchItem">
                 <select className="selct" onChange={handleselect2}>
-                  <option value="ville">ville</option>{" "}
+                  <option value="ville">Ville</option>{" "}
                   {/* Option statique "ville" */}
                   {loading
                     ? "loading .."

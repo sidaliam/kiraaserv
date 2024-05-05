@@ -177,7 +177,7 @@ const Hotel = () => {
 
             // Ajouter la gestion de la réponse de la requête axios.post si nécessaire
             return addorder.data;
-            alert("Commande envoyée");
+            
           } catch (error) {
             // Gestion des erreurs ici
             console.error("Une erreur s'est produite :", error);
