@@ -136,8 +136,12 @@
   /* Media Query pour mobile */
   @media screen and (max-width: 480px) {
 	.fpImg {
-	  height: 150px; /* Ajuster la hauteur maximale pour les mobiles */
-	}
+		width: 100%; /* Ajuster la largeur de l'image pour qu'elle occupe 100% de son conteneur */
+		max-width: 300px; /* Définir une largeur maximale pour l'image */
+		height: auto; /* Permettre à la hauteur de s'ajuster automatiquement en conservant les proportions de l'image */
+		object-fit: cover; /* Redimensionner l'image pour qu'elle remplisse complètement son conteneur */
+		border-radius: 5%; /* Ajouter une bordure arrondie */
+	  }
   
 	.fpItem {
 	  flex-basis: calc(50% - 10px); /* Pour afficher en deux colonnes, moins le gap */

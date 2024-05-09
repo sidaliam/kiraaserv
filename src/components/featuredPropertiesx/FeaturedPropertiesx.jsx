@@ -18,14 +18,14 @@ const FeaturedPropertiesx = ({ selectedDates }) => {
   };
 
   return (
-    <div className="fpx">
+    <div className="fp">
       {loading ? (
        <Lottie style={{height:120}} animationData={LoadingAnimation} />
       ) : (
         <>
           {data.map((item) => (
-            <div className="fpItemx" key={item._id}>
-              <div className="cardx">
+            <div className="fpItem" key={item._id}>
+              <div className="card">
               {item.photos && item.photos.length > 0 && (
                 <img src={item.photos[0]} alt="" className="fpImgx" />
               )}
