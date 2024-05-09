@@ -26,7 +26,7 @@ const FeaturedProperties = () => {
               <div className="fpItem" onClick={() => handleCarClick(car)}>
                 <div className="card">
                   {car.photos && car.photos.length > 0 && (
-                    <img src={car.photos[0]} alt="" className="fpImgx" />
+                    <img src={car.photos[0]} alt="" className="fpImg" />
                   )}
                   <div className="card-body">
                     <span className="fpName">{car.modéle}</span>
