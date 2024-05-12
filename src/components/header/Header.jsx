@@ -136,8 +136,8 @@ const Header = ({ type }) => {
                 <a href="/">
                   <div class="icon-containerb">
                     <img
-                      width="48"
-                      height="48"
+                      width="38"
+                      height="38"
                       src="https://img.icons8.com/fluency/48/000000/car-rental.png"
                       alt="car-rental"
                     />{" "}
@@ -146,8 +146,8 @@ const Header = ({ type }) => {
                 <a href="/agences">
                   <div class="icon-containerb">
                     <img
-                      width="48"
-                      height="48"
+                      width="38"
+                      height="38"
                       src="https://img.icons8.com/fluency/48/add-contact-to-company.png"
                       alt="add-contact-to-company"
                     />
@@ -163,8 +163,8 @@ const Header = ({ type }) => {
                 <a href="/contact">
                   <div class="icon-containerb">
                     <img
-                      width="48"
-                      height="48"
+                      width="38"
+                      height="38"
                       src="https://img.icons8.com/fluency/48/outgoing-call.png"
                       alt="outgoing-call"
                     />{" "}
@@ -173,8 +173,8 @@ const Header = ({ type }) => {
                 <a href="/about">
                   <div class="icon-containerb">
                     <img
-                      width="48"
-                      height="48"
+                      width="38"
+                      height="38"
                       src="https://img.icons8.com/fluency/48/conference-call.png"
                       alt="conference-call"
                     />{" "}

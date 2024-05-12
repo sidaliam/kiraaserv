@@ -166,7 +166,7 @@ span {
   padding: 10px;
   margin-bottom: -20px;
   align-items: center;
-
+ 
 }
 
 
@@ -181,6 +181,7 @@ span {
   border-radius: 50%; /* Crée un cercle */
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Animations de transition */
   text-align: center;
+  
 }
 
 .icon {
@@ -249,21 +250,22 @@ button {
   /* Ajoutez ici d'autres styles nécessaires */
 }
 
-.cc1 {
+.cc1x {
   width: 38px;
   height: 38px;
   margin-right: 10px; /* Marge de 10px entre l'image et le composant suivant */
   margin-left: 80%; /* Marge de 10px à droite de la page */
+  cursor: pointer;
+  margin-top: -30%;
 }
 
-.cc {
-  border-radius: 20px;
+.ccx {
   background: red;
-  padding: 3px 4px;
-  border-radius: 4px;
+  padding: 3px 5px;
+  border-radius: 8px;
   width: 30px;
   height: 30px;
-  margin-left: 82%;
+  margin-left: 84%;
 }
 
 
@@ -275,6 +277,15 @@ button {
   .icon-containerc {
     width: 37px; /* Ajustement de la largeur pour les tablettes */
     height: 37px; /* Ajustement de la hauteur pour les tablettes */
+  }
+
+  .ccx {
+    background: red;
+    padding: 3px 5px;
+    border-radius: 8px;
+    width: 30px;
+    height: 30px;
+    margin-left: 92%;
   }
   
 }
@@ -325,4 +336,7 @@ button {
   span {
     font-size: x-small;
   }
+
+ 
 }
+

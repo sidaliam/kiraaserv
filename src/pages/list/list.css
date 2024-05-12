@@ -90,6 +90,7 @@
 .lsItem .datePickerContainer {
   position: relative;
   height: 20px;
+  
 }
 
 .datePicker {
@@ -223,13 +224,17 @@
   display: flex;
   justify-content: center;
   align-items: center; /* Centrer verticalement */
+  z-index: 1000; /* Assure que le composant est au-dessus du reste du contenu */
+
+  
 }
 
 .datePicker {
   width: 90%;
   max-width: 400px; /* Ajustez cette valeur en fonction de votre mise en page */
   border-radius: 8px;
-  
+  z-index: 1000; /* Assure que le composant est au-dessus du reste du contenu */
+
 }
 
 

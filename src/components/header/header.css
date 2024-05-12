@@ -5,6 +5,7 @@
   justify-content: center;
   position: relative;
   height: 200px;
+
 }
 
 .headerContainer {
@@ -12,6 +13,7 @@
   max-width: 1024px;
   margin: 20px 10px 100px 10px; /* Ajuster la marge pour les écrans plus petits */
   height: 250px;
+ 
 }
 
 .headerContainer.listMode {
@@ -62,12 +64,15 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 10px 0px;
+  padding: 10px 2px ;
   border-radius: 5px;
   position: absolute;
   bottom: -25px;
   width: 96%;
   max-width: 1024px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  
   
 }
 
@@ -81,6 +86,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+
 }
 
 .headerSearchInput {
@@ -98,8 +104,10 @@
 .date {
   position: absolute;
   top: 50px;
-  z-index: 2;
+
+  z-index: 999;
 }
+
 .options {
   z-index: 2;
   position: absolute;
@@ -151,6 +159,7 @@
   justify-content: center;
   font-family: Arial, sans-serif;
   margin-left: 100px;
+  
 }
 
 input[type="date"] {
@@ -284,7 +293,7 @@ button {
   
 }
 
-@media (max-width: 480px) {
+@media screen and (max-width: 480px) {
   .icon-containerb {
     width: 40px; /* Ajustement de la largeur pour les appareils mobiles */
     height: 40px; /* Ajustement de la hauteur pour les appareils mobiles */
@@ -305,6 +314,7 @@ button {
 
   .headerContainerb {
     margin: 20px 5px 30px 5px; /* Ajustements de marge pour les mobiles */
+    
   }
 
   .headerList {
@@ -317,42 +327,17 @@ button {
   }
 
   .headerSearch {
-    bottom: -15px; /* Ajustement de la position pour les mobiles */
+    
     right: 1.5%;
-    left: 1.5;
-
-  }
-
-  .optionItem {
-    max-width: 120px; /* Ajustements de largeur maximale pour les mobiles */
-  }
-
-  span {
-    font-size: x-small;
-  }
-
-}
-/* Media Query pour mobile */
-@media screen and (max-width: 480px) {
-  .headerContainerb {
-    margin: 20px 5px 30px 5px; /* Ajustements de marge pour les mobiles */
-  }
-
-  .headerList {
-    flex-direction: column; /* Afficher les éléments en colonne sur les mobiles */
-    gap: 10px; /* Ajustements d'écart pour les mobiles */
-  }
-
-  .headerListItem.active {
-    padding: 8px; /* Ajustement de la taille du padding pour les mobiles */
-  }
-
-  .headerSearch {
+    left: 1.5%;
+    width: 94%;
+    align-items: right;
     bottom: -30px; /* Ajustement de la position pour les mobiles */
     
 
-    
   }
+
+  
 
   .optionItem {
     max-width: 120px; /* Ajustements de largeur maximale pour les mobiles */
@@ -362,8 +347,27 @@ button {
     font-size: x-small;
   }
 
+  .date {
+    font-size: 12px; /* Réduire la taille de la police */
+    padding: 5px; /* Réduire le rembourrage */
+    /* Ajoutez d'autres styles de réduction de taille si nécessaire */
+    
+  }
+    
+    .rdrMonthAndYearWrapper {
+      font-size: 10px; /* Réduire la taille de la police pour les mois et les années */
+    }
+
+    .rdrDayNumber {
+      font-size: 10px; /* Réduire la taille de la police pour les numéros de jour */
+    }
+
+    /* Ajoutez d'autres styles spécifiques au besoin */
+  
+
 
 }
+
 
 .notification {
   position: fixed;
@@ -374,7 +378,6 @@ button {
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  z-index: 9999; /* Assurez-vous que la notification apparaît au-dessus de tous les autres éléments */
 }
 
 
@@ -393,4 +396,6 @@ button {
   width: 30px;
   height: 30px;
   margin-left: 82%;
+  cursor: pointer;
+
 }

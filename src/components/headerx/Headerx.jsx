@@ -120,11 +120,12 @@ const Header = ({ type }) => {
                 {user ? user.username : <div className="navItems"></div>}
               </div>
               <div onClick={handleShopIconClick}>
-                <span className="cc">{reservationCount}</span>
+                <span className="ccx" >{reservationCount}</span>
                 <img
-                  className="cc1"
+                  className="cc1x"
                   src="https://img.icons8.com/fluency/48/indoor-parking-06.png"
                   alt="indoor-parking-06"
+                  
                 />
               </div>
 
