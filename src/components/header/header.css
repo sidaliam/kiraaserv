@@ -159,6 +159,7 @@
   justify-content: center;
   font-family: Arial, sans-serif;
   margin-left: 100px;
+  font-size: 50px;
   
 }
 
@@ -349,21 +350,25 @@ button {
 
   .date {
     font-size: 12px; /* Réduire la taille de la police */
-    padding: 5px; /* Réduire le rembourrage */
+    
     /* Ajoutez d'autres styles de réduction de taille si nécessaire */
+    width: 98%;
+    margin-left: 0.1%;
     
   }
     
     .rdrMonthAndYearWrapper {
-      font-size: 10px; /* Réduire la taille de la police pour les mois et les années */
+      font-size: 5px; /* Réduire la taille de la police pour les mois et les années */
     }
 
     .rdrDayNumber {
-      font-size: 10px; /* Réduire la taille de la police pour les numéros de jour */
+      font-size: 5px; /* Réduire la taille de la police pour les numéros de jour */
     }
 
     /* Ajoutez d'autres styles spécifiques au besoin */
-  
+    .DateRange{
+     padding-right: 20%;
+    }
 
 
 }

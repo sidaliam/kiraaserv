@@ -58,7 +58,7 @@ const Agence = () => {
               <div className="datePickerContainer">
                 <div className="datePicker">
                   <div className="sicon" onClick={() => setOpenDate(false)}>
-                    <FontAwesomeIcon icon={faTimes} style={{color:"#007bff"}} />
+                    <FontAwesomeIcon icon={faTimes} style={{color:"black",cursor:'pointer',background:'white'}} />
                   </div>
                   <br />
                   <br />

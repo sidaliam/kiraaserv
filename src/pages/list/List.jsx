@@ -155,7 +155,7 @@ const List = () => {
                 </div>
               </div>
               <div className="searchIcon" onClick={toggleSearchBar}>
-                <FontAwesomeIcon icon={ faChevronCircleLeft} className="iconx" />
+                <FontAwesomeIcon icon={ faChevronCircleLeft} className="iconx" style={{cursor:'pointer'}} />
               </div>
             </div>
           )}

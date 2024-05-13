@@ -12,6 +12,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { IoLogoModelS } from "react-icons/io";
+import { faTimes } from "@fortawesome/free-solid-svg-icons"; // Importez l'icône de fermeture
+
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./header.css";
@@ -27,6 +29,8 @@ import { AuthContext } from "../../Context/Authcontext";
 import useF from "../../Hooks/useF";
 import { Helmet } from "react-helmet";
 import { GlobalContext } from "../../Context/ReservationContext";
+import { FiX } from "react-icons/fi"; // Importer l'icône X de react-icons/fi
+
 
 const Header = ({ type }) => {
   const { reservationCount } = useContext(GlobalContext);
@@ -196,16 +200,7 @@ const Header = ({ type }) => {
                   )}`}
                 </span>
 
-                {openDate && (
-                  <DateRange
-                    editableDateInputs={true}
-                    onChange={(item) => setDates([item.selection])}
-                    moveRangeOnFirstSelection={false}
-                    ranges={dates}
-                    className="date"
-                    minDate={new Date()}
-                  />
-                )}
+                
               </div>
 
               <div className="headerSearchItem">
@@ -243,6 +238,7 @@ const Header = ({ type }) => {
                     )}
                   </select>
                 </div>
+                
               </div>
 
               <div className="headerSearchItem">
@@ -251,6 +247,27 @@ const Header = ({ type }) => {
                 </button>
               </div>
             </div>
+            {openDate && (
+              <div className="datePickerContainer">
+              <div className="datePicker">
+                <div className="sicon" onClick={() => setOpenDate(false)}>
+                  <FontAwesomeIcon icon={faTimes} style={{color:"black",cursor:'pointer',background:'white'}} />
+                </div>
+                <br />
+                <br />
+                  <DateRange
+                    editableDateInputs={true}
+                    onChange={(item) => setDates([item.selection])}
+                    moveRangeOnFirstSelection={false}
+                    ranges={dates}
+                    className="date"
+                    minDate={new Date()}
+                    
+                  />
+                  </div>
+              </div>
+                )}
+                <FontAwesomeIcon icon={faTimes} />
           </>
         )}
       </div>

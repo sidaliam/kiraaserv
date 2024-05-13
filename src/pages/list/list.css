@@ -159,6 +159,8 @@
   font-size: 24px;
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
   padding-left: 10%;
+  background-color: #ccc;
+  cursor: pointer;
 }
 
 .iconx:hover {
@@ -176,6 +178,7 @@
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
   padding-left: 10%;
   padding-top: 10%;
+ 
 }
 
 .iconxx:hover {
