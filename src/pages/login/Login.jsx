@@ -8,6 +8,9 @@ import { axiosinstance } from "../../config";
 import logo from "../../image/logo kiraa w-o original.png";
 
 const Login = () => {
+  const modeles=localStorage.getItem("selectedmodeles")
+  const voitures=localStorage.getItem("selectedVoiture")
+  const chemin=localStorage.getItem("commandesauvgarder")
   const [credentials, setCredentials] = useState({
     username: undefined,
     password: undefined,
@@ -27,7 +30,15 @@ const Login = () => {
     try {
       const res = await axiosinstance.post("/auth/login", credentials);
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
-      navigate("/");
+      if (voitures || modeles){
+        navigate(chemin)
+      }
+      else{
+        navigate("/")
+
+      }
+
+     
     } catch (err) {
       if (err.response.status === 401) {
         if (err.response.data === "Invalid username") {

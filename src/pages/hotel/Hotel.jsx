@@ -97,6 +97,7 @@ const Hotel = () => {
     if (user) {
       setOpenmodal(true);
     } else {
+      localStorage.setItem("commandesauvgarder",location.pathname)
       navigate("/login");
     }
   };
@@ -191,6 +192,7 @@ const Hotel = () => {
         console.error("Une erreur s'est produite :", err);
       }
     } else {
+      localStorage.setItem("commandesauvgarder",location.pathname)
       navigate("/login");
     }
   };
