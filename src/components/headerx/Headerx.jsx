@@ -120,12 +120,11 @@ const Header = ({ type }) => {
                 {user ? user.username : <div className="navItems"></div>}
               </div>
               <div onClick={handleShopIconClick}>
-                <span className="ccx" >{reservationCount}</span>
+                <span className="ccx">{reservationCount}</span>
                 <img
                   className="cc1x"
                   src="https://img.icons8.com/fluency/48/indoor-parking-06.png"
                   alt="indoor-parking-06"
-                  
                 />
               </div>
 
@@ -138,7 +137,7 @@ const Header = ({ type }) => {
               )}
 
               <div class="icon-sliderb">
-                <a href="/">
+                <a href="/" style={{ textDecoration: "none" }}>
                   <div class="icon-containerc">
                     <img
                       width="42"
@@ -146,9 +145,10 @@ const Header = ({ type }) => {
                       src="https://img.icons8.com/fluency/48/000000/car-rental.png"
                       alt="car-rental"
                     />{" "}
-                  </div>
+                  </div>{" "}
+                  <div className="trt">voitures</div>
                 </a>
-                <a href="/agences">
+                <a href="/agences" style={{ textDecoration: "none" }}>
                   <div class="icon-containerc">
                     <img
                       width="42"
@@ -156,7 +156,8 @@ const Header = ({ type }) => {
                       src="https://img.icons8.com/fluency/48/add-contact-to-company.png"
                       alt="add-contact-to-company"
                     />
-                  </div>
+                  </div>{" "}
+                  <div className="trt">agences</div>
                 </a>
                 <div class="icon-containerc" style={{ display: "none" }}>
                   <FontAwesomeIcon
@@ -165,7 +166,7 @@ const Header = ({ type }) => {
                     style={{ display: "none" }}
                   />
                 </div>
-                <a href="/contact">
+                <a href="/contact" style={{ textDecoration: "none" }}>
                   <div class="icon-containerc">
                     <img
                       width="42"
@@ -173,9 +174,10 @@ const Header = ({ type }) => {
                       src="https://img.icons8.com/fluency/48/outgoing-call.png"
                       alt="outgoing-call"
                     />{" "}
-                  </div>
+                  </div>{" "}
+                  <div className="trt">contact</div>
                 </a>
-                <a href="/about">
+                <a href="/about" style={{ textDecoration: "none" }}>
                   <div class="icon-containerc">
                     <img
                       width="42"
@@ -183,7 +185,8 @@ const Header = ({ type }) => {
                       src="https://img.icons8.com/fluency/48/conference-call.png"
                       alt="conference-call"
                     />{" "}
-                  </div>
+                  </div>{" "}
+                  <div className="trt">nous?</div>
                 </a>
               </div>
             </p>

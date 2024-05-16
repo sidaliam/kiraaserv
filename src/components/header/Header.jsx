@@ -14,7 +14,6 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { IoLogoModelS } from "react-icons/io";
 import { faTimes } from "@fortawesome/free-solid-svg-icons"; // Importez l'icône de fermeture
 
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./header.css";
 import { DateRange } from "react-date-range";
@@ -30,7 +29,6 @@ import useF from "../../Hooks/useF";
 import { Helmet } from "react-helmet";
 import { GlobalContext } from "../../Context/ReservationContext";
 import { FiX } from "react-icons/fi"; // Importer l'icône X de react-icons/fi
-
 
 const Header = ({ type }) => {
   const { reservationCount } = useContext(GlobalContext);
@@ -137,7 +135,7 @@ const Header = ({ type }) => {
               )}
 
               <div class="icon-sliderb">
-                <a href="/">
+                <a href="/" style={{ textDecoration: "none" }}>
                   <div class="icon-containerb">
                     <img
                       width="38"
@@ -146,16 +144,18 @@ const Header = ({ type }) => {
                       alt="car-rental"
                     />{" "}
                   </div>
+                  <div className="trt">voitures</div>
                 </a>
-                <a href="/agences">
+                <a href="/agences" style={{ textDecoration: "none" }}>
                   <div class="icon-containerb">
                     <img
                       width="38"
                       height="38"
                       src="https://img.icons8.com/fluency/48/add-contact-to-company.png"
                       alt="add-contact-to-company"
-                    />
+                    />{" "}
                   </div>
+                  <div className="trt">agences</div>
                 </a>
                 <div class="icon-containerb" style={{ display: "none" }}>
                   <FontAwesomeIcon
@@ -164,7 +164,7 @@ const Header = ({ type }) => {
                     style={{ display: "none" }}
                   />
                 </div>
-                <a href="/contact">
+                <a href="/contact" style={{ textDecoration: "none" }}>
                   <div class="icon-containerb">
                     <img
                       width="38"
@@ -173,8 +173,9 @@ const Header = ({ type }) => {
                       alt="outgoing-call"
                     />{" "}
                   </div>
+                  <div className="trt">contact</div>
                 </a>
-                <a href="/about">
+                <a href="/about" style={{ textDecoration: "none" }}>
                   <div class="icon-containerb">
                     <img
                       width="38"
@@ -183,6 +184,7 @@ const Header = ({ type }) => {
                       alt="conference-call"
                     />{" "}
                   </div>
+                  <div className="trt">nous?</div>
                 </a>
               </div>
             </p>
@@ -199,8 +201,6 @@ const Header = ({ type }) => {
                     "dd/MM/yyyy"
                   )}`}
                 </span>
-
-                
               </div>
 
               <div className="headerSearchItem">
@@ -238,7 +238,6 @@ const Header = ({ type }) => {
                     )}
                   </select>
                 </div>
-                
               </div>
 
               <div className="headerSearchItem">
@@ -249,12 +248,19 @@ const Header = ({ type }) => {
             </div>
             {openDate && (
               <div className="datePickerContainer">
-              <div className="datePicker">
-                <div className="sicon" onClick={() => setOpenDate(false)}>
-                  <FontAwesomeIcon icon={faTimes} style={{color:"black",cursor:'pointer',background:'white'}} />
-                </div>
-                <br />
-                <br />
+                <div className="datePicker">
+                  <div className="sicon" onClick={() => setOpenDate(false)}>
+                    <FontAwesomeIcon
+                      icon={faTimes}
+                      style={{
+                        color: "black",
+                        cursor: "pointer",
+                        background: "white",
+                      }}
+                    />
+                  </div>
+                  <br />
+                  <br />
                   <DateRange
                     editableDateInputs={true}
                     onChange={(item) => setDates([item.selection])}
@@ -262,12 +268,11 @@ const Header = ({ type }) => {
                     ranges={dates}
                     className="date"
                     minDate={new Date()}
-                    
                   />
-                  </div>
+                </div>
               </div>
-                )}
-                <FontAwesomeIcon icon={faTimes} />
+            )}
+            <FontAwesomeIcon icon={faTimes} />
           </>
         )}
       </div>

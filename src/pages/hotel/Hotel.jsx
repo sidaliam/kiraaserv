@@ -97,7 +97,7 @@ const Hotel = () => {
     if (user) {
       setOpenmodal(true);
     } else {
-      localStorage.setItem("commandesauvgarder",location.pathname)
+      localStorage.setItem("commandesauvgarder", location.pathname);
       navigate("/login");
     }
   };
@@ -178,7 +178,6 @@ const Hotel = () => {
 
             // Ajouter la gestion de la réponse de la requête axios.post si nécessaire
             return addorder.data;
-            
           } catch (error) {
             // Gestion des erreurs ici
             console.error("Une erreur s'est produite :", error);
@@ -192,7 +191,7 @@ const Hotel = () => {
         console.error("Une erreur s'est produite :", err);
       }
     } else {
-      localStorage.setItem("commandesauvgarder",location.pathname)
+      localStorage.setItem("commandesauvgarder", location.pathname);
       navigate("/login");
     }
   };
@@ -313,7 +312,8 @@ const Hotel = () => {
                     marginBottom: "5px",
                     borderBottom: "1px solid",
                     borderColor: "white",
-                    paddingBottom: "2px",
+                    paddingBottom: "14px",
+                    paddingTop: "4px",
                   }}
                 >
                   Année : {voiture.année}
@@ -324,7 +324,8 @@ const Hotel = () => {
                     marginBottom: "5px",
                     borderBottom: "1px solid",
                     borderColor: "white",
-                    paddingBottom: "2px",
+                    paddingBottom: "14px",
+                    paddingTop: "4px",
                   }}
                 >
                   Moteur : {voiture.moteur}
@@ -335,7 +336,8 @@ const Hotel = () => {
                     marginBottom: "5px",
                     borderBottom: "1px solid",
                     borderColor: "white",
-                    paddingBottom: "2px",
+                    paddingBottom: "14px",
+                    paddingTop: "4px",
                   }}
                 >
                   Couleur : {voiture.couleur}
@@ -346,7 +348,8 @@ const Hotel = () => {
                     marginBottom: "5px",
                     borderBottom: "1px solid",
                     borderColor: "white",
-                    paddingBottom: "2px",
+                    paddingBottom: "14px",
+                    paddingTop: "4px",
                   }}
                 >
                   {" "}
@@ -358,7 +361,8 @@ const Hotel = () => {
                     marginBottom: "5px",
                     borderBottom: "1px solid",
                     borderColor: "white",
-                    paddingBottom: "2px",
+                    paddingBottom: "14px",
+                    paddingTop: "4px",
                   }}
                 >
                   {" "}
@@ -372,7 +376,8 @@ const Hotel = () => {
                     marginBottom: "5px",
                     borderBottom: "1px solid",
                     borderColor: "white",
-                    paddingBottom: "2px",
+                    paddingBottom: "14px",
+                    paddingTop: "4px",
                   }}
                 >
                   Disponibilité :{" "}
@@ -568,7 +573,8 @@ const Hotel = () => {
                       marginBottom: "5px",
                       borderBottom: "1px solid",
                       borderColor: "white",
-                      paddingBottom: "2px",
+                      paddingBottom: "14px",
+                      paddingTop: "4px",
                     }}
                   >
                     Année : {searchcarr.année}
@@ -579,7 +585,8 @@ const Hotel = () => {
                       marginBottom: "5px",
                       borderBottom: "1px solid",
                       borderColor: "white",
-                      paddingBottom: "2px",
+                      paddingBottom: "14px",
+                      paddingTop: "4px",
                     }}
                   >
                     Moteur : {searchcarr.moteur}
@@ -590,7 +597,8 @@ const Hotel = () => {
                       marginBottom: "5px",
                       borderBottom: "1px solid",
                       borderColor: "white",
-                      paddingBottom: "2px",
+                      paddingBottom: "14px",
+                      paddingTop: "4px",
                     }}
                   >
                     Couleur : {searchcarr.couleur}
@@ -601,7 +609,8 @@ const Hotel = () => {
                       marginBottom: "5px",
                       borderBottom: "1px solid",
                       borderColor: "white",
-                      paddingBottom: "2px",
+                      paddingBottom: "14px",
+                      paddingTop: "4px",
                     }}
                   >
                     {" "}
@@ -613,7 +622,8 @@ const Hotel = () => {
                       marginBottom: "5px",
                       borderBottom: "1px solid",
                       borderColor: "white",
-                      paddingBottom: "2px",
+                      paddingBottom: "14px",
+                      paddingTop: "4px",
                     }}
                   >
                     {" "}
@@ -627,7 +637,8 @@ const Hotel = () => {
                       marginBottom: "5px",
                       borderBottom: "1px solid",
                       borderColor: "white",
-                      paddingBottom: "2px",
+                      paddingBottom: "14px",
+                      paddingTop: "4px",
                     }}
                   >
                     Disponibilité :{" "}

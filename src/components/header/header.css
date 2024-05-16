@@ -198,7 +198,8 @@ span {
   align-items: center;
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Animations de transition */
   text-align: center;
-  
+  transition: transform 0.3s, box-shadow 0.3s;
+
   
 }
 
@@ -279,6 +280,7 @@ button {
   
   font-size: large;
   font-weight: bold; /* Passage en gras au survol */
+  margin-left: 10%;
 }
 
 
@@ -369,7 +371,9 @@ button {
     .DateRange{
      padding-right: 20%;
     }
-
+    .trt{
+      font-size: 10px;
+    }
 
 }
 
@@ -403,4 +407,8 @@ button {
   margin-left: 82%;
   cursor: pointer;
 
+}
+
+.trt{
+  color: white;
 }

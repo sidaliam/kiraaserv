@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   position: relative;
-  height: 170px;
+  height: 200px;
 }
 
 .headerContainer {
@@ -339,4 +339,3 @@ button {
 
  
 }
-
