@@ -24,13 +24,11 @@ const Home = () => {
       <br />
       <br />
       <br />
-<br />
-<br />
+      <br />
+      <br />
 
       <div className="homeContainer">
-
-
-        <h1 className="homeTitlee"  style={{ color: "#0071c2" }}>
+        <h1 className="homeTitlee" style={{ color: "#0071c2" }}>
           Nos Voitures
         </h1>
         <FeaturedProperties />
