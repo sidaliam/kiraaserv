@@ -59,7 +59,7 @@
 }
 
 .headerBtn:disabled {
-  background-color:  #007bff;;
+  background-color: #ccc;
   cursor: not-allowed;
 }
 

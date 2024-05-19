@@ -3,8 +3,8 @@ import React, { useContext } from "react";
 import "./ReservationDetailsPage.css"; // Importez le fichier CSS
 import { GlobalContext } from "../../Context/ReservationContext";
 import Navbar from "../../components/navbar/Navbar";
-import Header from "../../components/header/Header";
 import { Helmet } from 'react-helmet-async';
+import Header from "../../components/headerx/Headerx";
 
 
 
