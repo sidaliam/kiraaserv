@@ -13,7 +13,7 @@ const Agence = () => {
   localStorage.removeItem("selectedVoiture");
   localStorage.removeItem("selectedmodeles");
 
-  const [openDate, setOpenDate] = useState(false);
+  const [openDate, setOpenDate] = useState(true);
   const [selectedDates, setSelectedDates] = useState([
     {
       startDate: new Date(),
@@ -58,7 +58,7 @@ const Agence = () => {
               <div className="datePickerContainer">
                 <div className="datePicker">
                   <div className="sicon" onClick={() => setOpenDate(false)}>
-                    <FontAwesomeIcon icon={faTimes} style={{color:"black",cursor:'pointer',background:'white'}} />
+                    <FontAwesomeIcon icon={faTimes} style={{color:"red",cursor:'pointer'}} />
                   </div>
                   <br />
                   <br />
@@ -78,7 +78,7 @@ const Agence = () => {
       </div>
 
       <div className="homeContainer">
-        <h1 className="homeTitlee" style={{ color: "orange" }}>
+        <h1 className="homeTitlee" style={{ color: "#0071c2" }}>
           NOS AGENCES
         </h1>
         <FeaturedPropertiesx selectedDates={selectedDates} />

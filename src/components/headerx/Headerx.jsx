@@ -95,6 +95,7 @@ const Header = ({ type }) => {
     setmodéle(e.target.value);
   };
 
+
   return (
     <div className="headerx">
       <div>

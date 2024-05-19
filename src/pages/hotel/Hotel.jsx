@@ -6,8 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleArrowLeft,
   faCircleArrowRight,
-  faCircleXmark,
-  faLocationDot,
+  faCircleXmark
 } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -33,7 +32,7 @@ const Hotel = () => {
       key: "selection",
     },
   ]);
-  const [openDate, setOpenDate] = useState(false);
+  const [openDate, setOpenDate] = useState(true);
   const seletedvoitures = localStorage.getItem("selectedVoiture");
   const voiture = JSON.parse(seletedvoitures);
   const seletedmodels = localStorage.getItem("selectedmodeles");
@@ -43,7 +42,6 @@ const Hotel = () => {
   const [open, setOpen] = useState(false);
   const [openmodal, setOpenmodal] = useState(false);
   const [dates, setDates] = useState(null);
-  const [roomNumbers, setRoomNumbers] = useState("");
 
   useEffect(() => {
     const storedDates = localStorage.getItem("selectedDates");
@@ -71,7 +69,7 @@ const Hotel = () => {
 
   const location = useLocation();
   const id = location.pathname.split("/")[2];
-  const { data, error, loading } = useF(`/hotels/find/${id}`);
+  const {data} = useF(`/hotels/find/${id}`);
   const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
 
   function dayDifference(date1, date2) {
@@ -133,10 +131,7 @@ const Hotel = () => {
       ? getdateesinrange(datess[0].startDate, datess[0].endDate)
       : [];
 
-  const alldates2 =
-    dates && dates[0]
-      ? getdateesinrange(dates[0].startDate, dates[0].endDate)
-      : [];
+
 
   const handleclick2 = async () => {
     if (user) {
@@ -214,13 +209,6 @@ const Hotel = () => {
     return !isFound;
   };
 
-  const isAvailable2 = (roomNumber) => {
-    const isFound = roomNumber.unavailableDates.some((date) =>
-      alldates2.includes(new Date(date).getTime())
-    );
-
-    return !isFound;
-  };
 
   return (
     <div>

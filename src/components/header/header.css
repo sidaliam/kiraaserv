@@ -4,9 +4,140 @@
   display: flex;
   justify-content: center;
   position: relative;
-  height: 200px;
+  height: 300px;
 
 }
+
+.headerSearch {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 25px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin-top: 20px;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.headerSearchItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 200px;
+  margin-right: 30px;
+}
+
+
+
+.headerSearchInput,
+.headerSearchText {
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 16px;
+  background-color: #ffff;
+}
+
+.headerSearchInput:focus,
+.headerSearchText:focus {
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.headerBtn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  
+}
+
+.headerBtn:disabled {
+  background-color:  #007bff;;
+  cursor: not-allowed;
+}
+
+.headerBtn:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.date {
+  position: absolute;
+  top: 60px;
+  z-index: 2;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+  .headerSearch {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .headerSearchItem {
+    min-width: 150px;
+  }
+
+  .headerBtn {
+    padding: 10px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerSearch {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+
+  }
+
+  .headerSearchItem {
+    min-width: 100%; /* Ensure items take full width */
+    justify-content: center;
+  }
+
+  .headerBtn {
+    width: 100%; /* Make button full width */
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .headerSearch {
+    padding: 5px;
+    flex-direction: column; /* Stack items vertically */
+    align-items: stretch; /* Stretch items to fill container */
+  }
+
+  .headerSearchItem {
+    min-width: 100%; /* Ensure items take full width */
+    justify-content:center;
+  }
+
+  .headerSearchInput,
+  .headerSearchText {
+    padding: 20px; /* Adjust padding for smaller screens */
+    font-size: 16px; /* Adjust font size for smaller screens */
+  }
+
+  .headerBtn {
+    padding: 10px; /* Adjust padding for smaller screens */
+    font-size: 14px; /* Adjust font size for smaller screens */
+    width: 100%; /* Ensure button takes full width */
+    
+  }
+}
+
+
+
+
+
 
 .headerContainer {
   width: 100%;
@@ -44,37 +175,9 @@
   margin: 20px 0px;
 }
 
-.headerBtn {
-  position: relative;
-  background-color: #0071c2;
-  color: white;
-  font-weight: 500;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 20%;
-  margin-right: 17px;
-}
 
-.headerSearch {
-  position: absolute;
-  height: 30px;
-  background-color: white;
-  border: 3px solid rgba(255, 128, 0, 0.981);
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 10px 2px ;
-  border-radius: 5px;
-  position: absolute;
-  bottom: -25px;
-  width: 96%;
-  max-width: 1024px;
-  overflow-y: hidden;
-  overflow-x: hidden;
-  
-  
-}
+
+
 
 .headerIcon {
   color: lightgray;
@@ -85,21 +188,10 @@
   position: relative;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 30px;
 
 }
 
-.headerSearchInput {
-  border: none;
-  outline: none;
-  touch-action: manipulation; /* Désactive les gestes de zoom pendant l'interaction tactile */
-  user-select: none; /* Empêche la sélection de texte qui pourrait causer le zoom */
-
-}
-.headerSearchText {
-  color: black;
-  cursor: pointer;
-}
 
 .date {
   position: absolute;
@@ -302,13 +394,7 @@ button {
     height: 40px; /* Ajustement de la hauteur pour les appareils mobiles */
   }
  
-  .headerBtn {
-    margin-top: 31px;
-    margin-right: 300px;
-    margin-bottom: 30px;
-    right: 100%;
 
-  }
 
   .selct {
     width: 60px;
@@ -329,16 +415,7 @@ button {
     padding: 8px; /* Ajustement de la taille du padding pour les mobiles */
   }
 
-  .headerSearch {
-    
-    right: 1.5%;
-    left: 1.5%;
-    width: 94%;
-    align-items: right;
-    bottom: -30px; /* Ajustement de la position pour les mobiles */
-    
 
-  }
 
   
 
@@ -350,14 +427,7 @@ button {
     font-size: x-small;
   }
 
-  .date {
-    font-size: 12px; /* Réduire la taille de la police */
-    
-    /* Ajoutez d'autres styles de réduction de taille si nécessaire */
-    width: 98%;
-    margin-left: 0.1%;
-    
-  }
+
     
     .rdrMonthAndYearWrapper {
       font-size: 5px; /* Réduire la taille de la police pour les mois et les années */

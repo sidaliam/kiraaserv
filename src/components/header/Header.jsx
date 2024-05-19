@@ -84,6 +84,10 @@ const Header = ({ type }) => {
     setville(e.target.value);
   };
 
+  const isButtonDisabled =
+    (modéle === "" && ville == "") ||
+    (modéle === "Voiture" && ville == "Ville");
+
   return (
     <div className="header">
       <div>
@@ -201,48 +205,54 @@ const Header = ({ type }) => {
                     "dd/MM/yyyy"
                   )}`}
                 </span>
+                {openDate && (
+                  <DateRange
+                    editableDateInputs={true}
+                    onChange={(item) => setDates([item.selection])}
+                    moveRangeOnFirstSelection={false}
+                    ranges={dates}
+                    className="date"
+                    minDate={new Date()}
+                  />
+                )}
               </div>
-
               <div className="headerSearchItem">
-                <select className="selct" onChange={handleselect2}>
-                  <option value="ville">Ville</option>{" "}
-                  {/* Option statique "ville" */}
-                  {loading
+                <select className="headerSearchInput" onChange={handleselect2}>
+                  <option value="Ville">Ville</option>
+                  {hoteloading
                     ? "loading .."
-                    : data &&
+                    : hoteldata &&
                       Array.from(
                         new Set(hoteldata.map((hotel) => hotel.city))
-                      ).map((model) => <option key={model}>{model}</option>)}
+                      ).map((city) => <option key={city}>{city}</option>)}
                 </select>
               </div>
-
               <div className="headerSearchItem">
-                <div className="selecRooms">
-                  <select className="selct" onChange={handleselect}>
-                    {loading ? (
-                      "loading .."
-                    ) : (
-                      <>
-                        <option value="voiture">Voiture</option>
-                        {data &&
-                          Array.from(
-                            new Set(
-                              data
-                                .map((room) => room.modéle)
-                                .filter((model) => model !== "voiture")
-                            )
-                          ).map((model) => (
-                            <option key={model}>{model}</option>
-                          ))}
-                      </>
-                    )}
-                  </select>
-                </div>
+                <select className="headerSearchInput" onChange={handleselect}>
+                  {loading ? (
+                    "loading .."
+                  ) : (
+                    <>
+                      <option value="Voiture">Voiture</option>
+                      {data &&
+                        Array.from(
+                          new Set(
+                            data
+                              .map((room) => room.modéle)
+                              .filter((model) => model !== "voiture")
+                          )
+                        ).map((model) => <option key={model}>{model}</option>)}
+                    </>
+                  )}
+                </select>
               </div>
-
               <div className="headerSearchItem">
-                <button className="headerBtn" onClick={handleSearch}>
-                  <FontAwesomeIcon icon={faSearch} /> {/* Icône de recherche */}
+                <button
+                  className="headerBtn"
+                  onClick={handleSearch}
+                  disabled={isButtonDisabled}
+                >
+                  <FontAwesomeIcon icon={faSearch} />
                 </button>
               </div>
             </div>
@@ -253,9 +263,8 @@ const Header = ({ type }) => {
                     <FontAwesomeIcon
                       icon={faTimes}
                       style={{
-                        color: "black",
+                        color: "red",
                         cursor: "pointer",
-                        background: "white",
                       }}
                     />
                   </div>
@@ -272,7 +281,7 @@ const Header = ({ type }) => {
                 </div>
               </div>
             )}
-            <FontAwesomeIcon icon={faTimes} />
+            
           </>
         )}
       </div>

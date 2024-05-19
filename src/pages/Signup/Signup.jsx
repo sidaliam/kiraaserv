@@ -76,6 +76,9 @@ const Signup = () => {
           name="description"
           content="registrez-vous avant de commander la voitures"
         />
+        <link rel='canonical' href='/signup' />
+
+
       </Helmet>
       <div className="login">
         <div className="login-form">
@@ -85,7 +88,7 @@ const Signup = () => {
           >
             <img src={logo} alt="kiraa" className="logo" />
           </div>
-          <h2 className="title">inscription</h2>
+          <h5 className="titlex" >Nous vous appelerons afin de vérifier si votre numéro de télephone est réel</h5>
           <input
             type="text"
             placeholder="Nom d'utilisateur"
