@@ -28,7 +28,8 @@ const ReservationDetailsPage = () => {
     <>
     <Helmet>
         <title>details reservations</title>
-        <meta name="description" content="vous allez trouver vos reservations"/>      </Helmet>
+        <meta name="description" content="vous allez trouver vos reservations"/>  
+        <link rel='canonical' href='https://kiraadz.com/reservation-details' />    </Helmet>
     <div>
       <Navbar />
       <Header/>

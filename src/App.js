@@ -8,6 +8,7 @@ import Signup from "./pages/Signup/Signup";
 import Agences from "./pages/agences/agences";
 import Contact from "./pages/contact/contact";
 import About from "./pages/about/about";
+import Maps from "./pages/Maps/Maps";
 
 
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="/hotels/:id" element={<Hotel />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup/>}/>
+        <Route path="/localisation" element={<Maps/>}/>
         <Route path="/reservation-details" element={<ReservationDetailsPage />} />
       </Routes>
     </BrowserRouter>

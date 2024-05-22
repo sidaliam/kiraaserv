@@ -43,7 +43,6 @@ const FeaturedProperties = () => {
                     <span className="fpCity">moteur: {car.moteur}</span>
                     <span className="fpCity">ville: {car.hotelDetails.city}</span>
                     <span className="fpCity" style={{color:"green"}}>telephone: 0{car.hotelDetails.cheapestPrice}</span>
-
                     <span className="fpPrice">Prix: {car.price} DA</span>
                   </div>
                 </div>

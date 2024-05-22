@@ -47,9 +47,8 @@ function ContactPage() {
                 <div className="contact-info-content">
                   <h4 style={{ color: "#1860e5" }}>Address</h4>
                   <p>
-                    4671 Sugar Camp Road,
-                    <br /> Owatonna, Minnesota, <br />
-                    55060
+                    Alger , <br />
+                    16000
                   </p>
                 </div>
               </div>
@@ -64,7 +63,7 @@ function ContactPage() {
 
                 <div className="contact-info-content">
                   <h4 style={{ color: "#1860e5" }}>Phone</h4>
-                  <p>571-457-2321</p>
+                  <p>07-94-86-13-73 <br /> 07-83-38-94-38</p>
                 </div>
               </div>
 
@@ -85,35 +84,34 @@ function ContactPage() {
 
             <div className="contact-form">
               <form action="" id="contact-form" onSubmit={handleSubmit}>
-                <h2>Send Message</h2>
                 <div className="input-box">
-                  <input type="text" id="name" name="name" required={true} />
+                  <input type="text" id="name" name="name" placeholder="Nom et prénom" required={true} />
                   <ValidationError
                     prefix="Name"
                     field="name"
                     errors={state.errors}
                   />
-                  <span>Full Name</span>
+                
                 </div>
 
                 <div className="input-box">
-                  <input id="email" name="email" type="email" required={true} />
+                  <input id="email" name="email" type="email" placeholder="Email" required={true} />
                   <ValidationError
                     prefix="Email"
                     field="email"
                     errors={state.errors}
                   />
-                  <span>Email</span>
+                  
                 </div>
 
                 <div className="input-box">
-                  <textarea required={true} name="message" id="message"></textarea>
+                  <textarea required={true} name="message" placeholder="Votre Message .." id="message"></textarea>
                   <ValidationError
                     prefix="Message"
                     field="message"
                     errors={state.errors}
                   />
-                  <span>Type your Message...</span>
+                  
                 </div>
 
                 <div className="input-box">

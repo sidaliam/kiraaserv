@@ -137,6 +137,7 @@ width: 100%;
     order: 1;
     margin-bottom: 20px;
   }
+ 
   
 }
 
@@ -321,7 +322,7 @@ width: 100%;
 /* Media Query pour les petits écrans (mobiles) */
 @media screen and (max-width: 480px) {
   .homeContainer {
-    margin-top: 20px; /* Ajuster la marge en haut */
+    margin-top: 200px; /* Ajuster la marge en haut */
     gap: 15px; /* Ajuster l'espacement entre les éléments */
   }
   .homeTitle {

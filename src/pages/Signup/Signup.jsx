@@ -77,7 +77,7 @@ const Signup = () => {
           content="registrez-vous avant de commander la voitures"
         />
         <link rel='canonical' href='/signup' />
-
+        <link rel='canonical' href='https://kiraadz.com/signup' />
 
       </Helmet>
       <div className="login">

@@ -84,7 +84,9 @@ const List = () => {
     <div>
       <Helmet>
         <title>voiture recherchée</title>
-        <meta name="description" content=""/>      </Helmet>
+        <meta name="description" content=""/> 
+        <link rel='canonical' href='https://kiraadz.com/hotels' />
+             </Helmet>
       <Navbar />
       <Headerx />
       <div>
@@ -161,7 +163,7 @@ const List = () => {
           )}
         </div>
       </div>
-      <h3 className="agg">voila les agences qui possedent la voitures cherchée :</h3>
+      <h3 className="agg">Voici le(s) Résultat(s) pour votre recherche :</h3>
       <div className="listContainer">
         <div className="listWrapper">
           <div className="listResult">

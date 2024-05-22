@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleArrowLeft,
   faCircleArrowRight,
-  faCircleXmark
+  faCircleXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -23,6 +23,7 @@ import { CgPhone } from "react-icons/cg";
 import { AiTwotoneEnvironment } from "react-icons/ai";
 import { Helmet } from "react-helmet-async";
 import { axiosinstance } from "../../config";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const Hotel = () => {
   const [datess, setDatess] = useState([
@@ -69,7 +70,7 @@ const Hotel = () => {
 
   const location = useLocation();
   const id = location.pathname.split("/")[2];
-  const {data} = useF(`/hotels/find/${id}`);
+  const { data } = useF(`/hotels/find/${id}`);
   const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
 
   function dayDifference(date1, date2) {
@@ -130,8 +131,6 @@ const Hotel = () => {
     datess && datess[0]
       ? getdateesinrange(datess[0].startDate, datess[0].endDate)
       : [];
-
-
 
   const handleclick2 = async () => {
     if (user) {
@@ -209,7 +208,6 @@ const Hotel = () => {
     return !isFound;
   };
 
-
   return (
     <div>
       <Helmet>
@@ -272,14 +270,27 @@ const Hotel = () => {
                     )}`}
                   </span>
                   {openDate && (
-                    <DateRange
-                      editableDateInputs={true}
-                      onChange={(item) => setDatess([item.selection])}
-                      moveRangeOnFirstSelection={false}
-                      ranges={datess}
-                      className="datex"
-                      minDate={new Date()}
-                    />
+                    <div className="datePickerContainer">
+                      <div className="datePicker">
+                        <div
+                          className="sicon"
+                          onClick={() => setOpenDate(false)}
+                        >
+                          <FontAwesomeIcon
+                            icon={faTimes}
+                            style={{ color: "red", cursor: "pointer" }}
+                          />
+                        </div>
+                        <DateRange
+                          editableDateInputs={true}
+                          onChange={(item) => setDatess([item.selection])}
+                          moveRangeOnFirstSelection={false}
+                          ranges={datess}
+                          className="datex"
+                          minDate={new Date()}
+                        />
+                      </div>
+                    </div>
                   )}
                 </div>
               </h3>

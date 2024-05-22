@@ -27,6 +27,7 @@ const Agence = () => {
       <Helmet>
         <title>agences</title>
         <meta name="description" content="voici nos agences disponibles " />
+        <link rel='canonical' href='https://kiraadz.com/agences' />
       </Helmet>
       <Navbar />
       <Headerx />
