@@ -150,17 +150,18 @@ const Header = ({ type }) => {
                   </div>
                   <div className="trt">voitures</div>
                 </a>
-                <a href="/agences" style={{ textDecoration: "none" }}>
+                <a href="/localisation" style={{ textDecoration: "none" }}>
                   <div class="icon-containerb">
                     <img
                       width="38"
                       height="38"
-                      src="https://img.icons8.com/fluency/48/add-contact-to-company.png"
-                      alt="add-contact-to-company"
+                      src="https://img.icons8.com/cotton/64/shipping-location--v1.png"
+                      alt="car-rental"
                     />{" "}
                   </div>
-                  <div className="trt">agences</div>
+                  <div className="trt">Localiser</div>
                 </a>
+
                 <div class="icon-containerb" style={{ display: "none" }}>
                   <FontAwesomeIcon
                     icon={faHotel}
@@ -281,7 +282,6 @@ const Header = ({ type }) => {
                 </div>
               </div>
             )}
-            
           </>
         )}
       </div>

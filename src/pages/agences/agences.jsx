@@ -33,50 +33,7 @@ const Agence = () => {
       <Headerx />
       <br />
       <br />
-      <div className="ctrdate">
-        <h3 style={{ marginLeft: "5%" }}>
-          Choisissez la date à laquelle vous souhaitez louer votre voiture :
-          <br />
-          <br />
-          <div className="headerSearchItem">
-            <FontAwesomeIcon
-              icon={faCalendarDays}
-              className="chiki"
-              style={{ color: "rgb(0, 53, 128)" }}
-            />
-            <span
-              onClick={() => setOpenDate(!openDate)}
-              className="picki"
-              style={{ color: "rgb(0, 53, 128)", cursor: "pointer" }}
-            >
-              {`${format(selectedDates[0].startDate, "MM/dd/yyyy")} to ${format(
-                selectedDates[0].endDate,
-                "MM/dd/yyyy"
-              )}`}
-            </span>
 
-            {openDate && (
-              <div className="datePickerContainer">
-                <div className="datePicker">
-                  <div className="sicon" onClick={() => setOpenDate(false)}>
-                    <FontAwesomeIcon icon={faTimes} style={{color:"red",cursor:'pointer'}} />
-                  </div>
-                  <br />
-                  <br />
-                  <DateRange
-                    editableDateInputs={true}
-                    onChange={(item) => setSelectedDates([item.selection])}
-                    moveRangeOnFirstSelection={false}
-                    ranges={selectedDates}
-                    className="datex"
-                    minDate={new Date()}
-                  />
-                </div>
-              </div>
-            )}
-          </div>
-        </h3>
-      </div>
 
       <div className="homeContainer">
         <h1 className="homeTitlee" style={{ color: "#0071c2" }}>

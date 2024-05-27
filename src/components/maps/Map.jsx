@@ -5,10 +5,14 @@ import MarkerClusterGroup from "react-leaflet-cluster";
 import { useState, useEffect } from "react";
 import { Icon, divIcon, point } from "leaflet";
 import useF from "../../Hooks/useF";
+import { useNavigate } from "react-router-dom";
 
 const Map = () => {
+  localStorage.removeItem("selectedVoiture");
+  localStorage.removeItem("selectedmodeles");
   const { data } = useF("/hotels");
   const [markers, setMarkers] = useState([]);
+  const navigate = useNavigate();
 
   const customIcon = new Icon({
     iconUrl: require("../../image/placeholder.png"),
@@ -49,6 +53,7 @@ const Map = () => {
               return {
                 geocode: [coords.lat, coords.lng],
                 popUp: hotel.name,
+                id: hotel._id,
               };
             } catch (error) {
               console.error(
@@ -63,13 +68,19 @@ const Map = () => {
         const uniqueMarkers = new Set(
           newMarkers
             .filter((marker) => marker !== null)
-            .map(marker => JSON.stringify(marker))
+            .map((marker) => JSON.stringify(marker))
         );
-        setMarkers(Array.from(uniqueMarkers).map(marker => JSON.parse(marker)));
+        setMarkers(
+          Array.from(uniqueMarkers).map((marker) => JSON.parse(marker))
+        );
       }
     };
     updateMarkers();
   }, [data]);
+
+  const handleMarkerClick = (id) => {
+    navigate(`/hotels/${id}`);
+  };
 
   return (
     <MapContainer center={[36.737232, 3.086472]} zoom={13}>
@@ -83,7 +94,18 @@ const Map = () => {
       >
         {markers.map((marker, index) => (
           <Marker key={index} position={marker.geocode} icon={customIcon}>
-            <Popup>{marker.popUp}</Popup>
+            <Popup className="popupclass">
+              {marker.popUp}{" "}
+              <br />
+              <br />
+              <button
+                style={{ backgroundColor: "#007bff",color:"#fff" }}
+                onClick={() => handleMarkerClick(marker.id)}
+              >
+                {" "}
+                voir l'agence
+              </button>
+            </Popup>
           </Marker>
         ))}
       </MarkerClusterGroup>

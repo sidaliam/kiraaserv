@@ -90,6 +90,11 @@ const Hotel = () => {
       ? dayDifference(new Date(dates[0].endDate), new Date(dates[0].startDate))
       : 0;
 
+      const days2 =
+      datess && datess[0]?.endDate && datess[0]?.startDate
+        ? dayDifference(new Date(datess[0].endDate), new Date(datess[0].startDate))
+        : 0;
+
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const handleclick = () => {
@@ -207,6 +212,8 @@ const Hotel = () => {
 
     return !isFound;
   };
+
+  localStorage.setItem("selectedDates", JSON.stringify(datess));
 
   return (
     <div>
@@ -779,6 +786,54 @@ const Hotel = () => {
       {!voiture &&
         !modéle && ( // If both voiture and modéle are not available, use hotel information
           <div className="hotelContainer">
+            <div className="ctrdate">
+              <h3 style={{ marginLeft: "2%" }}>
+                Choisissez la date à laquelle vous souhaitez louer votre voiture
+                :
+                <br />
+                <br />
+                <div className="headerSearchItem">
+                  <FontAwesomeIcon
+                    icon={faCalendarDays}
+                    className="headerIcon"
+                    style={{ color: "rgb(0, 53, 128)" }}
+                  />
+                  <span
+                    onClick={() => setOpenDate(!openDate)}
+                    className="headerSearchText"
+                    style={{ color: "rgb(0, 53, 128)" }}
+                  >
+                    {`${format(datess[0].startDate, "MM/dd/yyyy")} to ${format(
+                      datess[0].endDate,
+                      "MM/dd/yyyy"
+                    )}`}
+                  </span>
+                  {openDate && (
+                    <div className="datePickerContainer">
+                      <div className="datePicker">
+                        <div
+                          className="sicon"
+                          onClick={() => setOpenDate(false)}
+                        >
+                          <FontAwesomeIcon
+                            icon={faTimes}
+                            style={{ color: "red", cursor: "pointer" }}
+                          />
+                        </div>
+                        <DateRange
+                          editableDateInputs={true}
+                          onChange={(item) => setDatess([item.selection])}
+                          moveRangeOnFirstSelection={false}
+                          ranges={datess}
+                          className="datex"
+                          minDate={new Date()}
+                        />
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </h3>
+            </div>
             {open && (
               <div className="slider">
                 <FontAwesomeIcon
@@ -841,6 +896,10 @@ const Hotel = () => {
                 {" "}
                 <FcShipped /> livraison : {data.desc}
               </h5>
+
+              <h3>
+                <span>0{data.cheapestPrice}</span>
+              </h3>
               <div className="hotelAddress">
                 <AiTwotoneEnvironment
                   style={{ fontSize: "20px", color: "blue" }}
@@ -886,10 +945,10 @@ const Hotel = () => {
                   </span>
                 </div>
                 <div className="hotelDetailsPrice">
-                  <h1>commandez pour {days} jours</h1>
+                  <h1>commandez pour {days2} jours</h1>
                   <span>voici nos voitures à commander</span>
                   <span>cochez voiture choisie</span>
-                  <h2>({days} jour(s))</h2>
+                  <h2>({days2} jour(s))</h2>
                   <button className="bookNow" onClick={handleclick}>
                     commandez ici
                   </button>
@@ -899,7 +958,7 @@ const Hotel = () => {
           </div>
         )}
       {openmodal && (
-        <Reserv setopen={setOpenmodal} hotelid={id} searchcar={searchcar} />
+        <Reserv setopen={setOpenmodal} hotelid={id} searchcar={searchcar} datess={datess} />
       )}
       <Footer />
     </div>

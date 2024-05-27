@@ -149,16 +149,16 @@ const Header = ({ type }) => {
                   </div>{" "}
                   <div className="trt">voitures</div>
                 </a>
-                <a href="/agences" style={{ textDecoration: "none" }}>
-                  <div class="icon-containerc">
+                <a href="/localisation" style={{ textDecoration: "none" }}>
+                  <div class="icon-containerb">
                     <img
                       width="42"
                       height="42"
-                      src="https://img.icons8.com/fluency/48/add-contact-to-company.png"
-                      alt="add-contact-to-company"
-                    />
-                  </div>{" "}
-                  <div className="trt">agences</div>
+                      src="https://img.icons8.com/cotton/64/shipping-location--v1.png"
+                      alt="car-rental"
+                    />{" "}
+                  </div>
+                  <div className="trt">Localiser</div>
                 </a>
                 <div class="icon-containerc" style={{ display: "none" }}>
                   <FontAwesomeIcon

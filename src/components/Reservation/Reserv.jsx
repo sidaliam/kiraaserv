@@ -9,7 +9,8 @@ import { AuthContext } from "../../Context/Authcontext";
 import { GlobalContext } from "../../Context/ReservationContext";
 import { useEffect } from "react";
 import { axiosinstance } from "../../config";
-const Reserv = ({ setopen, hotelid, searchcar }) => {
+const Reserv = ({ setopen, hotelid, searchcar,datess }) => {
+
   const reservationContext = useContext(GlobalContext);
   const { increaseReservationCount } = reservationContext;
   const { addReservationDetails } = useContext(GlobalContext);
