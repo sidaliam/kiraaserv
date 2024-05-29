@@ -145,6 +145,8 @@ const Reserv = ({ setopen, hotelid, searchcar,datess }) => {
             searchcar.map((item) => (
               <div key={item._id} className="ritem">
                 <div className="rinfo">
+                  <br />
+                  <br />
                   <div className="rdesc">{item.modéle}</div>
                   <div className="rdesc">{item.année}</div>
                   <div className="rdesc">{item.couleur}</div>

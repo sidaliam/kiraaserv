@@ -90,10 +90,13 @@ const Hotel = () => {
       ? dayDifference(new Date(dates[0].endDate), new Date(dates[0].startDate))
       : 0;
 
-      const days2 =
-      datess && datess[0]?.endDate && datess[0]?.startDate
-        ? dayDifference(new Date(datess[0].endDate), new Date(datess[0].startDate))
-        : 0;
+  const days2 =
+    datess && datess[0]?.endDate && datess[0]?.startDate
+      ? dayDifference(
+          new Date(datess[0].endDate),
+          new Date(datess[0].startDate)
+        )
+      : 0;
 
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -219,228 +222,209 @@ const Hotel = () => {
     <div>
       <Helmet>
         <title>reservation</title>
-        <meta name="description" content="" />{" "}
+        <meta name="description" content="" />
       </Helmet>
       <Navbar />
       <Header />
-      {!modéle &&
-        voiture && ( // If modéle is not available, use voiture
-          <div className="hotelContainer">
-            {open && (
-              <div className="slider">
-                <FontAwesomeIcon
-                  icon={faCircleXmark}
-                  className="close"
-                  onClick={() => setOpen(false)}
-                />
-                <FontAwesomeIcon
-                  icon={faCircleArrowLeft}
-                  className="arrow"
-                  onClick={() => handleMove("l")}
-                />
-                <div className="sliderWrapper">
-                  {voiture.photos && voiture.photos.length > 0 && (
-                    <img
-                      src={voiture.photos[slideNumber]}
-                      alt=""
-                      className="sliderImg"
-                    />
-                  )}
-                </div>
-                <FontAwesomeIcon
-                  icon={faCircleArrowRight}
-                  className="arrow"
-                  onClick={() => handleMove("r")}
-                />
-              </div>
-            )}
-            <div className="ctrdate">
-              <h3 style={{ marginLeft: "2%" }}>
-                Choisissez la date à laquelle vous souhaitez louer votre voiture
-                :
-                <br />
-                <br />
-                <div className="headerSearchItem">
-                  <FontAwesomeIcon
-                    icon={faCalendarDays}
-                    className="headerIcon"
-                    style={{ color: "rgb(0, 53, 128)" }}
+      {!modéle && voiture && (
+        <div className="hotelContainer">
+          {open && (
+            <div className="slider">
+              <FontAwesomeIcon
+                icon={faCircleXmark}
+                className="close"
+                onClick={() => setOpen(false)}
+              />
+              <FontAwesomeIcon
+                icon={faCircleArrowLeft}
+                className="arrow"
+                onClick={() => handleMove("l")}
+              />
+              <div className="sliderWrapper">
+                {voiture.photos && voiture.photos.length > 0 && (
+                  <img
+                    src={voiture.photos[slideNumber]}
+                    alt=""
+                    className="sliderImg"
                   />
-                  <span
-                    onClick={() => setOpenDate(!openDate)}
-                    className="headerSearchText"
-                    style={{ color: "rgb(0, 53, 128)" }}
-                  >
-                    {`${format(datess[0].startDate, "MM/dd/yyyy")} to ${format(
-                      datess[0].endDate,
-                      "MM/dd/yyyy"
-                    )}`}
-                  </span>
-                  {openDate && (
-                    <div className="datePickerContainer">
-                      <div className="datePicker">
-                        <div
-                          className="sicon"
-                          onClick={() => setOpenDate(false)}
-                        >
-                          <FontAwesomeIcon
-                            icon={faTimes}
-                            style={{ color: "red", cursor: "pointer" }}
-                          />
-                        </div>
-                        <DateRange
-                          editableDateInputs={true}
-                          onChange={(item) => setDatess([item.selection])}
-                          moveRangeOnFirstSelection={false}
-                          ranges={datess}
-                          className="datex"
-                          minDate={new Date()}
+                )}
+              </div>
+              <FontAwesomeIcon
+                icon={faCircleArrowRight}
+                className="arrow"
+                onClick={() => handleMove("r")}
+              />
+            </div>
+          )}
+          <div className="ctrdate">
+            <h3 style={{ marginLeft: "2%" }}>
+              Choisissez la date à laquelle vous souhaitez louer votre voiture :
+              <br />
+              <br />
+              <div className="headerSearchItem">
+                <FontAwesomeIcon
+                  icon={faCalendarDays}
+                  className="headerIcon"
+                  style={{ color: "rgb(0, 53, 128)" }}
+                />
+                <span
+                  onClick={() => setOpenDate(!openDate)}
+                  className="headerSearchText"
+                  style={{ color: "rgb(0, 53, 128)" }}
+                >
+                  {`${format(datess[0].startDate, "MM/dd/yyyy")} to ${format(
+                    datess[0].endDate,
+                    "MM/dd/yyyy"
+                  )}`}
+                </span>
+                {openDate && (
+                  <div className="datePickerContainer">
+                    <div className="datePicker">
+                      <div className="sicon" onClick={() => setOpenDate(false)}>
+                        <FontAwesomeIcon
+                          icon={faTimes}
+                          style={{ color: "red", cursor: "pointer" }}
                         />
                       </div>
+                      <DateRange
+                        editableDateInputs={true}
+                        onChange={(item) => setDatess([item.selection])}
+                        moveRangeOnFirstSelection={false}
+                        ranges={datess}
+                        className="datex"
+                        minDate={new Date()}
+                      />
                     </div>
-                  )}
-                </div>
-              </h3>
-            </div>
-
-            <br />
-            <br />
-
-            <div className="hotelWrapper">
-              <h3 className="hotelTitle">
-                {voiture.marque} {voiture.modéle}
-              </h3>
-              <h3 className="hotelTitle"></h3>
-
-              <div className="rdesc">
-                <h5
-                  style={{
-                    marginBottom: "5px",
-                    borderBottom: "1px solid",
-                    borderColor: "white",
-                    paddingBottom: "14px",
-                    paddingTop: "4px",
-                  }}
-                >
-                  Année : {voiture.année}
-                </h5>
-
-                <h5
-                  style={{
-                    marginBottom: "5px",
-                    borderBottom: "1px solid",
-                    borderColor: "white",
-                    paddingBottom: "14px",
-                    paddingTop: "4px",
-                  }}
-                >
-                  Moteur : {voiture.moteur}
-                </h5>
-
-                <h5
-                  style={{
-                    marginBottom: "5px",
-                    borderBottom: "1px solid",
-                    borderColor: "white",
-                    paddingBottom: "14px",
-                    paddingTop: "4px",
-                  }}
-                >
-                  Couleur : {voiture.couleur}
-                </h5>
-
-                <h5
-                  style={{
-                    marginBottom: "5px",
-                    borderBottom: "1px solid",
-                    borderColor: "white",
-                    paddingBottom: "14px",
-                    paddingTop: "4px",
-                  }}
-                >
-                  {" "}
-                  <FcBusinessman /> Chaufeur : {voiture.hotelDetails.title}
-                </h5>
-
-                <h5
-                  style={{
-                    marginBottom: "5px",
-                    borderBottom: "1px solid",
-                    borderColor: "white",
-                    paddingBottom: "14px",
-                    paddingTop: "4px",
-                  }}
-                >
-                  {" "}
-                  <FcShipped /> Livraison : {voiture.hotelDetails.desc}
-                </h5>
-
-                <h5
-                  style={{
-                    display: "inline-block",
-                    verticalAlign: "middle",
-                    marginBottom: "5px",
-                    borderBottom: "1px solid",
-                    borderColor: "white",
-                    paddingBottom: "14px",
-                    paddingTop: "4px",
-                  }}
-                >
-                  Disponibilité :{" "}
-                  {voiture.roomNumbers.map((roomnumber) => (
-                    <h5
-                      style={{
-                        display: "inline-block",
-                        verticalAlign: "middle",
-                      }}
-                    >
-                      {!isAvailable(roomnumber) ? (
-                        <>
-                          <AiOutlineClose
-                            style={{
-                              marginRight: "5px",
-                              fontSize: "30px",
-                              color: "red",
-                              verticalAlign: "middle",
-                            }}
-                          />
-                          <h3
-                            style={{
-                              color: "red",
-                              display: "inline-block",
-                              verticalAlign: "middle",
-                            }}
-                          >
-                            non disponible
-                          </h3>
-                        </>
-                      ) : (
-                        <>
-                          <AiOutlineCheck
-                            style={{
-                              marginRight: "5px",
-                              fontSize: "30px",
-                              color: "green",
-                              verticalAlign: "middle",
-                            }}
-                          />
-                          <h3
-                            style={{
-                              color: "green",
-                              display: "inline-block",
-                              verticalAlign: "middle",
-                            }}
-                          >
-                            disponible
-                          </h3>
-                        </>
-                      )}
-                    </h5>
-                  ))}
-                </h5>
+                  </div>
+                )}
               </div>
-
-              <div className="rdesc">
+            </h3>
+          </div>
+          <br />
+          <br />
+          <div className="hotelWrapper">
+            <h3 className="hotelTitle">
+              {voiture.marque} {voiture.modéle}
+            </h3>
+            <div className="rdesc">
+              <h5
+                style={{
+                  marginBottom: "5px",
+                  borderBottom: "1px solid",
+                  borderColor: "white",
+                  paddingBottom: "14px",
+                  paddingTop: "4px",
+                }}
+              >
+                Année : {voiture.année}
+              </h5>
+              <h5
+                style={{
+                  marginBottom: "5px",
+                  borderBottom: "1px solid",
+                  borderColor: "white",
+                  paddingBottom: "14px",
+                  paddingTop: "4px",
+                }}
+              >
+                Moteur : {voiture.moteur}
+              </h5>
+              <h5
+                style={{
+                  marginBottom: "5px",
+                  borderBottom: "1px solid",
+                  borderColor: "white",
+                  paddingBottom: "14px",
+                  paddingTop: "4px",
+                }}
+              >
+                Couleur : {voiture.couleur}
+              </h5>
+              <h5
+                style={{
+                  marginBottom: "5px",
+                  borderBottom: "1px solid",
+                  borderColor: "white",
+                  paddingBottom: "14px",
+                  paddingTop: "4px",
+                }}
+              >
+                <FcBusinessman /> Chauffeur : {voiture.hotelDetails.title}
+              </h5>
+              <h5
+                style={{
+                  marginBottom: "5px",
+                  borderBottom: "1px solid",
+                  borderColor: "white",
+                  paddingBottom: "14px",
+                  paddingTop: "4px",
+                }}
+              >
+                <FcShipped /> Livraison : {voiture.hotelDetails.desc}
+              </h5>
+              <h5
+                style={{
+                  display: "inline-block",
+                  verticalAlign: "middle",
+                  marginBottom: "5px",
+                  borderBottom: "1px solid",
+                  borderColor: "white",
+                  paddingBottom: "14px",
+                  paddingTop: "4px",
+                }}
+              >
+                Disponibilité :
+                {voiture.roomNumbers.map((roomnumber) => (
+                  <h5
+                    style={{ display: "inline-block", verticalAlign: "middle" }}
+                  >
+                    {!isAvailable(roomnumber) ? (
+                      <>
+                        <AiOutlineClose
+                          style={{
+                            marginRight: "5px",
+                            fontSize: "30px",
+                            color: "red",
+                            verticalAlign: "middle",
+                          }}
+                        />
+                        <h3
+                          style={{
+                            color: "red",
+                            display: "inline-block",
+                            verticalAlign: "middle",
+                          }}
+                        >
+                          non disponible
+                        </h3>
+                      </>
+                    ) : (
+                      <>
+                        <AiOutlineCheck
+                          style={{
+                            marginRight: "5px",
+                            fontSize: "30px",
+                            color: "green",
+                            verticalAlign: "middle",
+                          }}
+                        />
+                        <h3
+                          style={{
+                            color: "green",
+                            display: "inline-block",
+                            verticalAlign: "middle",
+                          }}
+                        >
+                          disponible
+                        </h3>
+                      </>
+                    )}
+                  </h5>
+                ))}
+              </h5>
+            </div>
+            <div className="rdesc">
+              {voiture.price !== 0 && (
                 <h5
                   style={{
                     color: "orange",
@@ -454,291 +438,90 @@ const Hotel = () => {
                 >
                   Prix : {voiture.price} DA /par jour
                 </h5>
-              </div>
-              <h4> {voiture.hotelDetails.name} </h4>
-
-              <div className="hotelAddress">
-                <AiTwotoneEnvironment
-                  style={{ fontSize: "20px", color: "blue" }}
-                />
-
-                <h6>
-                  <span className="hotelDistance" style={{ fontSize: "20px" }}>
-                    {voiture.hotelDetails.city}
-                  </span>
-                </h6>
-              </div>
-              <div className="hotelAddress">
-                <h3>{voiture.hotelDetails.address}</h3>
-                <h6>
-                  <span className="hotelDistance"></span>
-                </h6>
-              </div>
-
-              <span className="hotelPriceHighlight">
-                <CgPhone /> 0{voiture.hotelDetails.cheapestPrice}
-              </span>
-              <div className="hotelImages">
-                {voiture.photos?.map((photo, i) => (
-                  <div className="hotelImgWrapper" key={i}>
-                    <img
-                      src={photo}
-                      alt=""
-                      className="hotelImg"
-                      onClick={() => handleImageClick(photo)}
-                    />
-                  </div>
-                ))}
-                {imageAgrandie && (
-                  <div
-                    className="imageAgrandieOverlay"
-                    onClick={handleCloseImageAgrandie}
-                  >
-                    <img src={imageAgrandie} alt="" className="imageAgrandie" />
-                  </div>
-                )}
-              </div>
-              <div className="hotelDetails">
-                <div className="hotelDetailsTexts">
-                  <h1 className="hotelTitle">
-                    description de la voiture : <br />
-                  </h1>
-                  {voiture.description}
-                  <br />
-                  <br />
+              )}
+            </div>
+            <h4>{voiture.hotelDetails.name}</h4>
+            <div className="hotelAddress">
+              <AiTwotoneEnvironment
+                style={{ fontSize: "20px", color: "blue" }}
+              />
+              <h6>
+                <span className="hotelDistance" style={{ fontSize: "20px" }}>
+                  {voiture.hotelDetails.city}
+                </span>
+              </h6>
+            </div>
+            <div className="hotelAddress">
+              <h3>{voiture.hotelDetails.address}</h3>
+              <h6>
+                <span className="hotelDistance"></span>
+              </h6>
+            </div>
+            <span className="hotelPriceHighlight">
+              <CgPhone /> 0{voiture.hotelDetails.cheapestPrice}
+            </span>
+            <div className="hotelImages">
+              {voiture.photos?.map((photo, i) => (
+                <div className="hotelImgWrapper" key={i}>
+                  <img
+                    src={photo}
+                    alt=""
+                    className="hotelImg"
+                    onClick={() => handleImageClick(photo)}
+                  />
                 </div>
-
-                <div className="hotelDetailsPrice">
-                  <span></span>
-
+              ))}
+              {imageAgrandie && (
+                <div
+                  className="imageAgrandieOverlay"
+                  onClick={handleCloseImageAgrandie}
+                >
+                  <img src={imageAgrandie} alt="" className="imageAgrandie" />
+                </div>
+              )}
+            </div>
+            <div className="hotelDetails">
+              <div className="hotelDetailsTexts">
+                <h1 className="hotelTitle">
+                  description de la voiture :
+                  <br />
+                </h1>
+                {voiture.description}
+                <br />
+                <br />
+              </div>
+              <div className="hotelDetailsPrice">
+                <span></span>
+                {voiture.price !== 0 && (
                   <h3>Total à payer : {voiture.price * alldates.length} DA</h3>
-
-                  {voiture.roomNumbers.map((roomnumber) => (
-                    <button
-                      key={roomnumber._id}
-                      className="bookNow"
-                      onClick={handleclick2}
-                      disabled={!isAvailable(roomnumber)}
-                      style={{
-                        pointerEvents: !isAvailable(roomnumber)
-                          ? "none"
-                          : "auto",
-                      }}
-                    >
-                      Commandez la {voiture.modéle}
-                    </button>
-                  ))}
-                </div>
+                )}
+                {voiture.roomNumbers.map((roomnumber) => (
+                  <button
+                    key={roomnumber._id}
+                    className="bookNow"
+                    onClick={handleclick2}
+                    disabled={!isAvailable(roomnumber)}
+                    style={{
+                      pointerEvents: !isAvailable(roomnumber) ? "none" : "auto",
+                    }}
+                  >
+                    Commandez la {voiture.modéle}
+                  </button>
+                ))}
               </div>
             </div>
           </div>
-        )}
+        </div>
+      )}
       {!voiture &&
         modéle &&
         Array.isArray(searchcar) &&
         searchcar.map((searchcarr, index) => (
-          <div key={index} className="hotelContainer">
-            {open && (
-              <div className="slider">
-                <FontAwesomeIcon
-                  icon={faCircleXmark}
-                  className="close"
-                  onClick={() => setOpen(false)}
-                />
-                <FontAwesomeIcon
-                  icon={faCircleArrowLeft}
-                  className="arrow"
-                  onClick={() => handleMove("l")}
-                />
-                <div className="sliderWrapper">
-                  {searchcarr.photos && searchcarr.photos.length > 0 && (
-                    <img
-                      src={searchcarr.photos[slideNumber]}
-                      alt=""
-                      className="sliderImg"
-                    />
-                  )}
-                </div>
-                <FontAwesomeIcon
-                  icon={faCircleArrowRight}
-                  className="arrow"
-                  onClick={() => handleMove("r")}
-                />
-              </div>
-            )}
+          <div className="hotelContainer" key={index}>
             <div className="hotelWrapper">
-              <h3 className="hotelTitle">
+              <h1 className="hotelTitle">
                 {searchcarr.marque} {searchcarr.modéle}
-              </h3>
-              <h3 className="hotelTitle"></h3>
-
-              <div className="rdesc">
-                <div className="rdesc">
-                  <h5
-                    style={{
-                      marginBottom: "5px",
-                      borderBottom: "1px solid",
-                      borderColor: "white",
-                      paddingBottom: "14px",
-                      paddingTop: "4px",
-                    }}
-                  >
-                    Année : {searchcarr.année}
-                  </h5>
-
-                  <h5
-                    style={{
-                      marginBottom: "5px",
-                      borderBottom: "1px solid",
-                      borderColor: "white",
-                      paddingBottom: "14px",
-                      paddingTop: "4px",
-                    }}
-                  >
-                    Moteur : {searchcarr.moteur}
-                  </h5>
-
-                  <h5
-                    style={{
-                      marginBottom: "5px",
-                      borderBottom: "1px solid",
-                      borderColor: "white",
-                      paddingBottom: "14px",
-                      paddingTop: "4px",
-                    }}
-                  >
-                    Couleur : {searchcarr.couleur}
-                  </h5>
-
-                  <h5
-                    style={{
-                      marginBottom: "5px",
-                      borderBottom: "1px solid",
-                      borderColor: "white",
-                      paddingBottom: "14px",
-                      paddingTop: "4px",
-                    }}
-                  >
-                    {" "}
-                    <FcBusinessman /> Chaufeur : {searchcarr.hotelDetails.title}
-                  </h5>
-
-                  <h5
-                    style={{
-                      marginBottom: "5px",
-                      borderBottom: "1px solid",
-                      borderColor: "white",
-                      paddingBottom: "14px",
-                      paddingTop: "4px",
-                    }}
-                  >
-                    {" "}
-                    <FcShipped /> Livraison : {searchcarr.hotelDetails.desc}
-                  </h5>
-
-                  <h5
-                    style={{
-                      display: "inline-block",
-                      verticalAlign: "middle",
-                      marginBottom: "5px",
-                      borderBottom: "1px solid",
-                      borderColor: "white",
-                      paddingBottom: "14px",
-                      paddingTop: "4px",
-                    }}
-                  >
-                    Disponibilité :{" "}
-                    {searchcarr.roomNumbers.map((roomnumber) => (
-                      <h5
-                        style={{
-                          display: "inline-block",
-                          verticalAlign: "middle",
-                        }}
-                      >
-                        {!isAvailable(roomnumber) ? (
-                          <>
-                            <AiOutlineClose
-                              style={{
-                                marginRight: "5px",
-                                fontSize: "30px",
-                                color: "red",
-                                verticalAlign: "middle",
-                              }}
-                            />
-                            <h3
-                              style={{
-                                color: "red",
-                                display: "inline-block",
-                                verticalAlign: "middle",
-                              }}
-                            >
-                              non disponible
-                            </h3>
-                          </>
-                        ) : (
-                          <>
-                            <AiOutlineCheck
-                              style={{
-                                marginRight: "5px",
-                                fontSize: "30px",
-                                color: "green",
-                                verticalAlign: "middle",
-                              }}
-                            />
-                            <h3
-                              style={{
-                                color: "green",
-                                display: "inline-block",
-                                verticalAlign: "middle",
-                              }}
-                            >
-                              disponible
-                            </h3>
-                          </>
-                        )}
-                      </h5>
-                    ))}
-                  </h5>
-                </div>
-              </div>
-
-              <div className="rdesc">
-                <h5
-                  style={{
-                    color: "orange",
-                    backgroundColor: "white",
-                    width: "max-content",
-                    borderRadius: "5px",
-                    paddingLeft: "2px",
-                    paddingRight: "2px",
-                    fontSize: "18px",
-                  }}
-                >
-                  Prix : {searchcarr.price} DA /par jour
-                </h5>
-              </div>
-              <div className="rdesc">
-                <h4> {data.name}</h4>
-              </div>
-
-              <div className="hotelAddress">
-                <AiTwotoneEnvironment
-                  style={{ fontSize: "20px", color: "blue" }}
-                />
-
-                <h5>
-                  <span className="hotelDistance" style={{ fontSize: "20px" }}>
-                    {" "}
-                    {data.city}
-                  </span>
-                </h5>
-              </div>
-              <h4>
-                <span>{data.address}</span>
-              </h4>
-              <span className="hotelPriceHighlight">
-                <CgPhone /> 0{searchcarr.hotelDetails.cheapestPrice}{" "}
-              </span>
+              </h1>
               <div className="hotelImages">
                 {searchcarr.photos?.map((photo, i) => (
                   <div className="hotelImgWrapper" key={i}>
@@ -761,22 +544,31 @@ const Hotel = () => {
               </div>
               <div className="hotelDetails">
                 <div className="hotelDetailsTexts">
-                  <h1 className="hotelTitle">description de la voiture</h1>
-                  <p className="hotelDesc">{searchcarr.description}</p>
+                  <h1 className="hotelTitle">
+                    description de la voiture :
+                    <br />
+                  </h1>
+                  {searchcarr.description}
+                  <br />
+                  <br />
+                  <h3 className="hotelTitle"></h3>
+                  <div className="hotelDistance">
+                    <h5>
+                      Année : {searchcarr.année} | Moteur : {searchcarr.moteur}{" "}
+                      | Couleur : {searchcarr.couleur}
+                    </h5>
+                  </div>
                 </div>
                 <div className="hotelDetailsPrice">
-                  <h1>commandez pour {days} jour(s)</h1>
-                  <span>
-                    commandez la voiture en ligne et recevez votre réservation
-                  </span>
-                  <h2>
-                    <b>{searchcarr.price * days} DA</b> ({days} jour(s))
-                  </h2>
-                  {searchcar && searchcar.length > 0 && (
-                    <button className="bookNow" onClick={handleclick}>
-                      commandez la {searchcarr.modéle}
-                    </button>
+                  <span></span>
+                  {searchcarr.price !== 0 && (
+                    <h3>
+                      Total à payer : {searchcarr.price * alldates.length} DA
+                    </h3>
                   )}
+                  <button className="bookNow" onClick={handleclick}>
+                    Commandez la {searchcarr.modéle}
+                  </button>
                 </div>
               </div>
             </div>
@@ -958,8 +750,17 @@ const Hotel = () => {
           </div>
         )}
       {openmodal && (
-        <Reserv setopen={setOpenmodal} hotelid={id} searchcar={searchcar} datess={datess} />
+        <Reserv
+          setopen={setOpenmodal}
+          hotelid={id}
+          searchcar={searchcar}
+          datess={datess}
+        />
       )}
+      <br />
+      <br />
+      <br />
+      <br />
       <Footer />
     </div>
   );

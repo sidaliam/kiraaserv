@@ -1,211 +1,111 @@
+/* Conteneur principal de l'hôtel */
 .hotelContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin: 40px 0;
 }
 
+/* Wrapper pour les détails de l'hôtel */
 .hotelWrapper {
-  background-color: #f2f0f0;
+  background-color: #ffffff;
   width: 100%;
   max-width: 1024px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
   position: relative;
-  border-radius:5px;
-
-  padding: 4px 4px 4px 4px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
 }
 
-
-
-/* Code CSS principal */
-
-/* ... Votre code CSS existant ... */
-
-/* Animation pour le bouton "Book Now" */
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.bookNow {
-  /* Votre code existant */
-  /* Ajout d'une animation au survol */
-  transition: transform 0.3s ease-in-out;
-}
-.bookNow:hover {
-  animation: pulse 3s infinite;
-}
-
-/* Media queries pour la réactivité */
-@media screen and (max-width: 768px) {
-  .hotelImgWrapper {
-    width: 100%;
-
-  }
-  
-}
-
-@media screen and (max-width: 480px) {
-  .hotelTitle {
-    font-size: 20px;
-  }
-  .hotelAddress {
-    font-size: 10px;
-  }
-
-  
-  /* D'autres ajustements pour les appareils mobiles */
-}
-
-/* Code pour le slider d'images */
-/* ... Votre code CSS existant pour le slider ... */
-
-
+/* Titre de l'hôtel */
 .hotelTitle {
-  font-size: 20px;
-  color: #0071c2;
-}
-
-.hotelTitlex{
   font-size: 24px;
-  
+  color: #0071c2;
+  font-weight: bold;
+  text-align: center;
 }
 
+/* Adresse de l'hôtel */
 .hotelAddress {
-  font-size: 12px;
+  font-size: 14px;
   display: flex;
   align-items: center;
   gap: 10px;
+  color: #555;
+  justify-content: center;
 }
 
+/* Distance de l'hôtel */
 .hotelDistance {
   color: #0071c2;
   font-weight: 500;
 }
 
+/* Surlignage du prix */
 .hotelPriceHighlight {
   color: #008009;
   font-weight: 500;
 }
 
+/* Conteneur des images de l'hôtel */
 .hotelImages {
-  width: 80%;
-  padding-block: 16px 32px;
-  
-  overflow-x: auto;
   display: flex;
-  width: 100%;
   gap: 8px;
-  align-items: center;
+  overflow-x: auto;
   scroll-snap-type: x mandatory;
+  padding: 16px 0;
 }
 
-.hotelImages ::-webkit-scrollbar {
-  height: 14px;
-  width: calc(100% - 48px);
-}
-
-
-.hotelImages::-webkit-scrollbar-track {
-  background: #b3b3b199;
-}
-
-.hotelImages::-webkit-scrollbar-thumb {
-  background: #29AB87;
-}
-
-.hotelImages::-webkit-scrollbar-track-piece:start {
-  background: #29AB87;
-}
-
-
-
-
+/* Style pour les images de l'hôtel */
 .hotelImgWrapper {
   flex: 1 0 30%;
   aspect-ratio: 1;
-  flex-flow: column nowrap;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(253, 252, 254);
+  background-color: #f8f8f8;
+  border-radius: 5px;
   scroll-snap-align: center;
-  border-radius:5px;
-  width: 400px;
- height: 400px;
 }
 
 .hotelImg {
-  width: 400px;
-  height: 300px;
-  transition: transform 0.3s ease; /* Ajoute une transition fluide pour l'effet agrandi */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
 }
 
-@media (max-width: 600px) {
-  .carousel-slide {
-    flex: 1 0 90%;
-  }
-
-  
+.hotelImg:hover {
+  transform: scale(1.05);
 }
 
+/* Overlay pour l'image agrandie */
 .imageAgrandieOverlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent pour l'overlay */
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999; /* Assure que l'image agrandie est au-dessus de tout le reste */
-  cursor: pointer; /* Curseur pointer pour indiquer que l'image peut être fermée en cliquant dessus */
+  z-index: 9999;
+  cursor: pointer;
 }
 
 .imageAgrandie {
   max-width: 90%;
   max-height: 90%;
-  object-fit: contain; /* Ajuste la taille de l'image tout en préservant son ratio d'aspect */
-  cursor: pointer; /* Curseur pointer pour indiquer que l'image peut être fermée en cliquant dessus */
+  object-fit: contain;
+  cursor: pointer;
 }
 
-
-
-
-
-
-.imageOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Couleur de fond semi-transparente */
-  z-index: 999; /* Position au-dessus de tous les autres éléments */
-  display: flex;
-  justify-content: center; /* Centrer horizontalement */
-  align-items: center; /* Centrer verticalement */
-  cursor: pointer; /* Curseur pointer pour indiquer qu'il est cliquable */
-}
-
-/* Image agrandie */
-.selectedImage {
-  max-width: 90%; /* Taille maximale de l'image agrandie */
-  max-height: 90%; /* Taille maximale de l'image agrandie */
-}
-
+/* Détails de l'hôtel */
 .hotelDetails {
   display: flex;
   justify-content: space-between;
@@ -229,18 +129,22 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  border-radius: 5px;
 }
 
 .hotelDetailsPrice > h1 {
   font-size: 18px;
   color: #555;
 }
+
 .hotelDetailsPrice > span {
   font-size: 14px;
 }
+
 .hotelDetailsPrice > h2 {
   font-weight: 300;
 }
+
 .hotelDetailsPrice > button {
   border: none;
   padding: 10px 20px;
@@ -249,9 +153,38 @@
   font-weight: bold;
   cursor: pointer;
   border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
-.slider{
+.hotelDetailsPrice > button:hover {
+  background-color: #005bb5;
+}
+
+/* Animation pour le bouton "Book Now" */
+/* Animation pour le bouton "Book Now" */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+.bookNow {
+  transition: transform 0.3s ease-in-out;
+}
+
+.bookNow:hover {
+  animation: pulse 3s infinite;
+}
+
+/* Style pour le slider */
+.slider {
   position: sticky;
   top: 0;
   left: 0;
@@ -263,7 +196,7 @@
   align-items: center;
 }
 
-.sliderWrapper{
+.sliderWrapper {
   width: 100%;
   height: 100%;
   display: flex;
@@ -271,12 +204,12 @@
   align-items: center;
 }
 
-.sliderImg{
+.sliderImg {
   width: 80%;
   height: 80vh;
 }
 
-.close{
+.close {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -285,7 +218,7 @@
   cursor: pointer;
 }
 
-.arrow{
+.arrow {
   margin: 20px;
   font-size: 50px;
   color: lightgray;
@@ -295,68 +228,75 @@
 /* Media queries pour la réactivité */
 @media screen and (max-width: 768px) {
   .hotelWrapper {
-    max-width: 90%; /* Réduire la largeur maximale du conteneur */
+    max-width: 90%;
   }
 
   .hotelImgWrapper {
-    width: 100%; /* Adapter la largeur de l'image à la taille de l'écran */
+    width: 100%;
   }
 
- 
-
   .hotelDetails {
-    flex-direction: column; /* Afficher les détails en colonne sur les tablettes */
+    flex-direction: column;
   }
 
   .hotelDetailsTexts {
-    margin-top: 20px; /* Ajouter un espacement en haut des détails du texte */
+    margin-top: 20px;
   }
-
-
 }
 
 @media screen and (max-width: 480px) {
   .hotelTitle {
-    font-size: 20px; /* Réduire la taille du titre pour les mobiles */
+    font-size: 20px;
   }
 
-
   .hotelAddress {
-    font-size: 10px; /* Réduire la taille de l'adresse pour les mobiles */
+    font-size: 10px;
   }
 
   .hotelDesc {
-    font-size: 12px; /* Réduire la taille de la description pour les mobiles */
-    margin-top: 10px; /* Réduire l'espacement en haut de la description */
+    font-size: 12px;
+    margin-top: 10px;
   }
 
   .hotelDetailsPrice {
-    padding: 15px; /* Réduire le padding des détails de prix pour les mobiles */
+    padding: 15px;
   }
 
   .hotelDetailsPrice > h1 {
-    font-size: 16px; /* Réduire la taille du titre de prix pour les mobiles */
+    font-size: 16px;
   }
 
   .hotelDetailsPrice > span {
-    font-size: 12px; /* Réduire la taille des éléments de prix pour les mobiles */
+    font-size: 12px;
   }
 
   .hotelDetailsPrice > h2 {
-    font-size: 14px; /* Réduire la taille du sous-titre de prix pour les mobiles */
+    font-size: 14px;
   }
 
   .hotelDetailsPrice > button {
-    padding: 8px 15px; /* Ajuster le padding du bouton pour les mobiles */
+    padding: 8px 15px;
   }
-  
 }
 
-/* ... Votre code CSS existant pour le slider ... */
+/* Styles pour les barres de défilement personnalisées */
+.hotelImages::-webkit-scrollbar {
+  height: 14px;
+}
 
-/* Autres ajustements pour la réactivité */
+.hotelImages::-webkit-scrollbar-track {
+  background: #b3b3b199;
+}
 
-/* ... */
+.hotelImages::-webkit-scrollbar-thumb {
+  background: #29AB87;
+}
+
+.hotelImages::-webkit-scrollbar-track-piece:start {
+  background: #29AB87;
+}
+
+/* Styles pour le slider Slick */
 .slick-slider .slick-prev,
 .slick-slider .slick-next {
   z-index: 100;
@@ -373,13 +313,16 @@
   transition: opacity 0.25s;
   cursor: pointer;
 }
+
 .slick-slider .slick-prev:hover,
 .slick-slider .slick-next:hover {
   opacity: 0.65;
 }
+
 .slick-slider .slick-prev {
   left: 0;
 }
+
 .slick-slider .slick-next {
   right: 0;
 }
@@ -389,6 +332,7 @@
   margin: 0 auto;
   border: 1px solid #eee;
 }
+
 #detail .product-images li,
 #detail .product-images figure,
 #detail .product-images a,
@@ -397,26 +341,31 @@
   outline: none;
   border: none;
 }
+
 #detail .product-images .main-img-slider figure {
   margin: 0 auto;
   padding: 0 2em;
 }
+
 #detail .product-images .main-img-slider figure a {
   cursor: pointer;
   cursor: -webkit-zoom-in;
   cursor: -moz-zoom-in;
   cursor: zoom-in;
 }
+
 #detail .product-images .main-img-slider figure a img {
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
 }
+
 #detail .product-images .thumb-nav {
   margin: 0 auto;
   padding: 20px 10px;
   max-width: 600px;
 }
+
 #detail .product-images .thumb-nav.slick-slider .slick-prev,
 #detail .product-images .thumb-nav.slick-slider .slick-next {
   font-size: 1.2em;
@@ -424,17 +373,21 @@
   width: 26px;
   margin-top: -10px;
 }
+
 #detail .product-images .thumb-nav.slick-slider .slick-prev {
   margin-left: -30px;
 }
+
 #detail .product-images .thumb-nav.slick-slider .slick-next {
   margin-right: -30px;
 }
+
 #detail .product-images .thumb-nav li {
   display: block;
   margin: 0 auto;
   cursor: pointer;
 }
+
 #detail .product-images .thumb-nav li img {
   display: block;
   width: 100%;
@@ -446,21 +399,20 @@
   -moz-transition: border-color 0.25s;
   transition: border-color 0.25s;
 }
+
 #detail .product-images .thumb-nav li:hover,
 #detail .product-images .thumb-nav li:focus {
   border-color: #999;
 }
+
 #detail .product-images .thumb-nav li.slick-current img {
   border-color: #d12f81;
 }
 
-
+/* Date Picker */
 .datex {
   position: absolute;
   top: 25px;
   z-index: 2;
   right: 2px;
-
 }
-
-
