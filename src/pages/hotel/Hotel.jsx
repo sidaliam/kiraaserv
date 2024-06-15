@@ -24,6 +24,12 @@ import { AiTwotoneEnvironment } from "react-icons/ai";
 import { Helmet } from "react-helmet-async";
 import { axiosinstance } from "../../config";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import {
+  AiTwotoneCalendar,
+  AiFillCar,
+  AiTwotoneFormatPainter,
+} from "react-icons/ai";
+import { AiFillFormatPainter } from "react-icons/ai";
 
 const Hotel = () => {
   const [datess, setDatess] = useState([
@@ -316,6 +322,9 @@ const Hotel = () => {
                   paddingTop: "4px",
                 }}
               >
+                <AiTwotoneCalendar
+                  style={{ marginRight: "5px", fontSize: "20px" }}
+                />
                 Année : {voiture.année}
               </h5>
               <h5
@@ -327,6 +336,7 @@ const Hotel = () => {
                   paddingTop: "4px",
                 }}
               >
+                <AiFillCar style={{ marginRight: "5px", fontSize: "20px" }} />
                 Moteur : {voiture.moteur}
               </h5>
               <h5
@@ -338,6 +348,9 @@ const Hotel = () => {
                   paddingTop: "4px",
                 }}
               >
+                <AiFillFormatPainter
+                  style={{ marginRight: "5px", fontSize: "20px" }}
+                />
                 Couleur : {voiture.couleur}
               </h5>
               <h5
@@ -485,6 +498,8 @@ const Hotel = () => {
                 <h1 className="hotelTitle">
                   description de la voiture :
                   <br />
+                  <br />
+                  <br />
                 </h1>
                 {voiture.description}
                 <br />
@@ -519,9 +534,97 @@ const Hotel = () => {
         searchcar.map((searchcarr, index) => (
           <div className="hotelContainer" key={index}>
             <div className="hotelWrapper">
-              <h1 className="hotelTitle">
+              <h3 className="hotelTitle">
                 {searchcarr.marque} {searchcarr.modéle}
-              </h1>
+              </h3>
+              <div className="rdesc">
+                <h5
+                  style={{
+                    marginBottom: "5px",
+                    borderBottom: "1px solid",
+                    borderColor: "white",
+                    paddingBottom: "14px",
+                    paddingTop: "4px",
+                  }}
+                >
+                  <AiTwotoneCalendar
+                    style={{ marginRight: "5px", fontSize: "20px" }}
+                  />
+                  Année : {searchcarr.année}
+                </h5>
+                <h5
+                  style={{
+                    marginBottom: "5px",
+                    borderBottom: "1px solid",
+                    borderColor: "white",
+                    paddingBottom: "14px",
+                    paddingTop: "4px",
+                  }}
+                >
+                  <AiFillCar style={{ marginRight: "5px", fontSize: "20px" }} />
+                  Moteur : {searchcarr.moteur}
+                </h5>
+                <h5
+                  style={{
+                    marginBottom: "5px",
+                    borderBottom: "1px solid",
+                    borderColor: "white",
+                    paddingBottom: "14px",
+                    paddingTop: "4px",
+                  }}
+                >
+                  <AiFillFormatPainter
+                    style={{ marginRight: "5px", fontSize: "20px" }}
+                  />
+                  Couleur : {searchcarr.couleur}
+                </h5>
+                <h5
+                  style={{
+                    marginBottom: "5px",
+                    borderBottom: "1px solid",
+                    borderColor: "white",
+                    paddingBottom: "14px",
+                    paddingTop: "4px",
+                  }}
+                >
+                  <FcBusinessman
+                    style={{ marginRight: "5px", fontSize: "20px" }}
+                  />
+                  Chauffeur : {searchcarr.hotelDetails.title}
+                </h5>
+                <h5
+                  style={{
+                    marginBottom: "5px",
+                    borderBottom: "1px solid",
+                    borderColor: "white",
+                    paddingBottom: "14px",
+                    paddingTop: "4px",
+                  }}
+                >
+                  <FcShipped style={{ marginRight: "5px", fontSize: "20px" }} />
+                  Livraison : {searchcarr.hotelDetails.desc}
+                </h5>
+              </div>
+              <h4>{searchcarr.hotelDetails.name}</h4>
+              <div className="hotelAddress">
+                <AiTwotoneEnvironment
+                  style={{ fontSize: "20px", color: "blue" }}
+                />
+                <h6>
+                  <span className="hotelDistance" style={{ fontSize: "20px" }}>
+                    {searchcarr.hotelDetails.city}
+                  </span>
+                </h6>
+              </div>
+              <div className="hotelAddress">
+                <h3>{searchcarr.hotelDetails.address}</h3>
+                <h6>
+                  <span className="hotelDistance"></span>
+                </h6>
+              </div>
+              <span className="hotelPriceHighlight">
+                <CgPhone /> 0{searchcarr.hotelDetails.cheapestPrice}
+              </span>
               <div className="hotelImages">
                 {searchcarr.photos?.map((photo, i) => (
                   <div className="hotelImgWrapper" key={i}>
@@ -545,22 +648,31 @@ const Hotel = () => {
               <div className="hotelDetails">
                 <div className="hotelDetailsTexts">
                   <h1 className="hotelTitle">
-                    description de la voiture :
+                    Description de la voiture :
+                    <br />
+                    <br />
                     <br />
                   </h1>
                   {searchcarr.description}
                   <br />
                   <br />
-                  <h3 className="hotelTitle"></h3>
-                  <div className="hotelDistance">
-                    <h5>
-                      Année : {searchcarr.année} | Moteur : {searchcarr.moteur}{" "}
-                      | Couleur : {searchcarr.couleur}
-                    </h5>
-                  </div>
                 </div>
                 <div className="hotelDetailsPrice">
-                  <span></span>
+                  {searchcarr.price !== 0 && (
+                    <h5
+                      style={{
+                        color: "orange",
+                        backgroundColor: "white",
+                        width: "max-content",
+                        borderRadius: "5px",
+                        paddingLeft: "2px",
+                        paddingRight: "2px",
+                        fontSize: "18px",
+                      }}
+                    >
+                      Prix : {searchcarr.price} DA /par jour
+                    </h5>
+                  )}
                   {searchcarr.price !== 0 && (
                     <h3>
                       Total à payer : {searchcarr.price * alldates.length} DA

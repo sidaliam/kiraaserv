@@ -53,19 +53,7 @@ function ContactPage() {
                 </div>
               </div>
 
-              <div className="contact-info-item">
-                <div
-                  id="contact-info-icon"
-                  style={{ marginTop: "5px", color: "#1860e5" }}
-                >
-                  <FontAwesomeIcon icon={faPhone} />
-                </div>
 
-                <div className="contact-info-content">
-                  <h4 style={{ color: "#1860e5" }}>Phone</h4>
-                  <p>07-94-86-13-73 <br /> 07-83-38-94-38</p>
-                </div>
-              </div>
 
               <div className="contact-info-item">
                 <div
@@ -77,7 +65,7 @@ function ContactPage() {
 
                 <div className="contact-info-content">
                   <h4 style={{ color: "#1860e5" }}>Email</h4>
-                  <p>kirraa@gmail.com</p>
+                  <p>kirraa2024@gmail.com</p>
                 </div>
               </div>
             </div>
@@ -85,33 +73,47 @@ function ContactPage() {
             <div className="contact-form">
               <form action="" id="contact-form" onSubmit={handleSubmit}>
                 <div className="input-box">
-                  <input type="text" id="name" name="name" placeholder="Nom et prénom" required={true} />
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Nom et prénom"
+                    required={true}
+                  />
                   <ValidationError
                     prefix="Name"
                     field="name"
                     errors={state.errors}
                   />
-                
                 </div>
 
                 <div className="input-box">
-                  <input id="email" name="email" type="email" placeholder="Email" required={true} />
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="Email"
+                    required={true}
+                  />
                   <ValidationError
                     prefix="Email"
                     field="email"
                     errors={state.errors}
                   />
-                  
                 </div>
 
                 <div className="input-box">
-                  <textarea required={true} name="message" placeholder="Votre Message .." id="message"></textarea>
+                  <textarea
+                    required={true}
+                    name="message"
+                    placeholder="Votre Message .."
+                    id="message"
+                  ></textarea>
                   <ValidationError
                     prefix="Message"
                     field="message"
                     errors={state.errors}
                   />
-                  
                 </div>
 
                 <div className="input-box">

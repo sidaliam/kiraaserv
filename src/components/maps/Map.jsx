@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { Icon, divIcon, point } from "leaflet";
 import useF from "../../Hooks/useF";
 import { useNavigate } from "react-router-dom";
+import { useInView } from "react-intersection-observer"; // Assurez-vous que ce module est installé
 
 const Map = () => {
   localStorage.removeItem("selectedVoiture");
@@ -34,6 +35,9 @@ const Map = () => {
         address
       )}`
     );
+    if (!response.ok) {
+      throw new Error(`Erreur HTTP: ${response.status}`);
+    }
     const data = await response.json();
     if (data.length > 0) {
       const { lat, lon } = data[0];
@@ -43,36 +47,39 @@ const Map = () => {
     }
   };
 
+  const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
   useEffect(() => {
     const updateMarkers = async () => {
       if (data && data.length > 0) {
-        const newMarkers = await Promise.all(
-          data.map(async (hotel) => {
-            try {
-              const coords = await fetchCoordinates(hotel.address);
-              return {
-                geocode: [coords.lat, coords.lng],
-                popUp: hotel.name,
-                id: hotel._id,
-              };
-            } catch (error) {
-              console.error(
-                `Erreur lors du géocodage de l'adresse ${hotel.address}:`,
-                error
-              );
-              return null;
-            }
-          })
-        );
-        // Use a Set to filter out duplicates
+        console.log("Données reçues:", data); // Ajout de log
+        const limitedData = data.slice(0, 20); // Limiter à 20 marqueurs pour le test
+        const newMarkers = [];
+        for (const hotel of limitedData) {
+          try {
+            const coords = await fetchCoordinates(hotel.address);
+            console.log(`Coordonnées pour ${hotel.name}:`, coords); // Ajout de log
+            newMarkers.push({
+              geocode: [coords.lat, coords.lng],
+              popUp: hotel.name,
+              id: hotel._id,
+            });
+            await sleep(1000); // Ajouter un délai d'une seconde entre les requêtes
+          } catch (error) {
+            console.error(
+              `Erreur lors du géocodage de l'adresse ${hotel.address}:`,
+              error
+            );
+          }
+        }
         const uniqueMarkers = new Set(
-          newMarkers
-            .filter((marker) => marker !== null)
-            .map((marker) => JSON.stringify(marker))
+          newMarkers.map((marker) => JSON.stringify(marker))
         );
-        setMarkers(
-          Array.from(uniqueMarkers).map((marker) => JSON.parse(marker))
+        const finalMarkers = Array.from(uniqueMarkers).map((marker) =>
+          JSON.parse(marker)
         );
+        console.log("Marqueurs finaux:", finalMarkers); // Ajout de log
+        setMarkers(finalMarkers);
       }
     };
     updateMarkers();
@@ -80,6 +87,21 @@ const Map = () => {
 
   const handleMarkerClick = (id) => {
     navigate(`/hotels/${id}`);
+  };
+
+  const LazyMarker = ({ position, icon, children }) => {
+    const { ref, inView } = useInView({
+      triggerOnce: true,
+      rootMargin: '200px',
+    });
+
+    return inView ? (
+      <Marker position={position} icon={icon}>
+        {children}
+      </Marker>
+    ) : (
+      <div ref={ref}></div>
+    );
   };
 
   return (
@@ -93,20 +115,20 @@ const Map = () => {
         iconCreateFunction={createClusterCustomIcon}
       >
         {markers.map((marker, index) => (
-          <Marker key={index} position={marker.geocode} icon={customIcon}>
+          <LazyMarker key={index} position={marker.geocode} icon={customIcon}>
             <Popup className="popupclass">
               {marker.popUp}{" "}
               <br />
               <br />
               <button
-                style={{ backgroundColor: "#007bff",color:"#fff" }}
+                style={{ backgroundColor: "#007bff", color: "#fff" }}
                 onClick={() => handleMarkerClick(marker.id)}
               >
                 {" "}
                 voir l'agence
               </button>
             </Popup>
-          </Marker>
+          </LazyMarker>
         ))}
       </MarkerClusterGroup>
     </MapContainer>
